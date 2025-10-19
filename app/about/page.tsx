@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export const metadata = {
   title: 'About | Astral Nexus',
   description: 'Learn about Astral Nexus and our mission to provide comprehensive knowledge and guides.',
