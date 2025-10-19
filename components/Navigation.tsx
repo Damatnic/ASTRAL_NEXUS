@@ -70,7 +70,7 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+          {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -85,11 +85,14 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 rounded-lg glass-card-hover text-gray-300"
+                  className="block px-4 py-3 rounded-lg glass-card-hover text-gray-300 min-h-[44px] flex items-center"
                 >
                   {item.name}
                 </Link>
               ))}
+              <div className="pt-3 border-t border-white/10">
+                <XPDisplay compact />
+              </div>
             </div>
           </motion.div>
         )}

@@ -72,12 +72,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 neon-text">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 neon-text leading-tight">
           {guide.title}
         </h1>
 
         {guide.description && (
-          <p className="text-xl text-gray-300 mb-6">{guide.description}</p>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">{guide.description}</p>
         )}
 
         {guide.tags && guide.tags.length > 0 && (
@@ -98,31 +98,31 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <Link
             href={`/study/flashcards/${slug}`}
-            className="glass-card-hover p-4 text-center group"
+            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
           >
-            <div className="text-3xl mb-2">🎴</div>
-            <div className="text-sm font-semibold group-hover:text-primary transition-colors">Flashcards</div>
+            <div className="text-2xl sm:text-3xl mb-2">🎴</div>
+            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">Flashcards</div>
           </Link>
           <Link
             href={`/study/quiz/${slug}`}
-            className="glass-card-hover p-4 text-center group"
+            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
           >
-            <div className="text-3xl mb-2">✏️</div>
-            <div className="text-sm font-semibold group-hover:text-primary transition-colors">Take Quiz</div>
+            <div className="text-2xl sm:text-3xl mb-2">✏️</div>
+            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">Take Quiz</div>
           </Link>
           <Link
             href={`/study/plan/${slug}`}
-            className="glass-card-hover p-4 text-center group"
+            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
           >
-            <div className="text-3xl mb-2">📅</div>
-            <div className="text-sm font-semibold group-hover:text-primary transition-colors">Study Plan</div>
+            <div className="text-2xl sm:text-3xl mb-2">📅</div>
+            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">Study Plan</div>
           </Link>
           <Link
             href={`/dashboard`}
-            className="glass-card-hover p-4 text-center group"
+            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
           >
-            <div className="text-3xl mb-2">📊</div>
-            <div className="text-sm font-semibold group-hover:text-primary transition-colors">My Progress</div>
+            <div className="text-2xl sm:text-3xl mb-2">📊</div>
+            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">My Progress</div>
           </Link>
         </div>
       </div>

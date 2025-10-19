@@ -93,21 +93,21 @@ export default function FlashcardStudy({ guideSlug, onComplete }: FlashcardStudy
           >
             {/* Front */}
             <div
-              className={`glass-card p-12 min-h-[400px] flex items-center justify-center ${
+              className={`glass-card p-6 sm:p-8 md:p-12 min-h-[300px] sm:min-h-[400px] flex items-center justify-center ${
                 isFlipped ? 'invisible' : 'visible'
               }`}
               style={{ backfaceVisibility: 'hidden' }}
             >
               <div className="text-center">
-                <div className="text-sm text-primary mb-4">{currentCard.section}</div>
-                <h2 className="text-3xl font-bold mb-6">{currentCard.question}</h2>
-                <p className="text-gray-400 text-sm">Click to reveal answer</p>
+                <div className="text-xs sm:text-sm text-primary mb-3 sm:mb-4">{currentCard.section}</div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 px-2">{currentCard.question}</h2>
+                <p className="text-gray-400 text-xs sm:text-sm">Tap to reveal answer</p>
               </div>
             </div>
 
             {/* Back */}
             <div
-              className={`absolute inset-0 glass-card p-12 min-h-[400px] flex items-center justify-center ${
+              className={`absolute inset-0 glass-card p-6 sm:p-8 md:p-12 min-h-[300px] sm:min-h-[400px] flex items-center justify-center ${
                 isFlipped ? 'visible' : 'invisible'
               }`}
               style={{
@@ -130,38 +130,38 @@ export default function FlashcardStudy({ guideSlug, onComplete }: FlashcardStudy
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
         >
           <button
             onClick={() => handleRate(1)}
-            className="glass-card-hover p-4 text-center border-2 border-red-500/30 hover:border-red-500"
+            className="glass-card-hover p-3 sm:p-4 text-center border-2 border-red-500/30 hover:border-red-500 active:scale-95 transition-transform min-h-[88px] flex flex-col items-center justify-center"
           >
             <div className="text-2xl mb-2">😰</div>
-            <div className="font-semibold text-red-400">Again</div>
+            <div className="font-semibold text-red-400 text-sm sm:text-base">Again</div>
             <div className="text-xs text-gray-500">Didn&apos;t recall</div>
           </button>
           <button
             onClick={() => handleRate(3)}
-            className="glass-card-hover p-4 text-center border-2 border-orange-500/30 hover:border-orange-500"
+            className="glass-card-hover p-3 sm:p-4 text-center border-2 border-orange-500/30 hover:border-orange-500 active:scale-95 transition-transform min-h-[88px] flex flex-col items-center justify-center"
           >
             <div className="text-2xl mb-2">😕</div>
-            <div className="font-semibold text-orange-400">Hard</div>
+            <div className="font-semibold text-orange-400 text-sm sm:text-base">Hard</div>
             <div className="text-xs text-gray-500">Struggled</div>
           </button>
           <button
             onClick={() => handleRate(4)}
-            className="glass-card-hover p-4 text-center border-2 border-primary/30 hover:border-primary"
+            className="glass-card-hover p-3 sm:p-4 text-center border-2 border-primary/30 hover:border-primary active:scale-95 transition-transform min-h-[88px] flex flex-col items-center justify-center"
           >
             <div className="text-2xl mb-2">🙂</div>
-            <div className="font-semibold text-primary">Good</div>
+            <div className="font-semibold text-primary text-sm sm:text-base">Good</div>
             <div className="text-xs text-gray-500">Recalled well</div>
           </button>
           <button
             onClick={() => handleRate(5)}
-            className="glass-card-hover p-4 text-center border-2 border-green-500/30 hover:border-green-500"
+            className="glass-card-hover p-3 sm:p-4 text-center border-2 border-green-500/30 hover:border-green-500 active:scale-95 transition-transform min-h-[88px] flex flex-col items-center justify-center"
           >
             <div className="text-2xl mb-2">🎉</div>
-            <div className="font-semibold text-green-400">Easy</div>
+            <div className="font-semibold text-green-400 text-sm sm:text-base">Easy</div>
             <div className="text-xs text-gray-500">Perfect!</div>
           </button>
         </motion.div>

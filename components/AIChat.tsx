@@ -119,7 +119,7 @@ export default function AIChat({ guideSlug, guideTitle }: AIChatProps) {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-28 right-8 w-[400px] h-[600px] glass-card border-2 border-primary/30 rounded-2xl shadow-glow-lg z-50 flex flex-col overflow-hidden"
+            className="fixed inset-x-4 bottom-24 md:bottom-28 md:right-8 md:left-auto md:w-[400px] h-[70vh] md:h-[600px] glass-card border-2 border-primary/30 rounded-2xl shadow-glow-lg z-50 flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-4 border-b border-white/10 flex items-center justify-between bg-gradient-to-r from-primary/10 to-accent/10">

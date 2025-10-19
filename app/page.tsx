@@ -14,17 +14,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent"></div>
         <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
               Astral <span className="neon-text">Nexus</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 md:mb-12 leading-relaxed px-4">
               Master life skills with interactive tools, AI assistance, and proven learning methods
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Link href="/guides" className="btn-primary text-lg px-8 py-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 px-4">
+              <Link href="/guides" className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 min-h-[48px] flex items-center justify-center">
                 Browse Guides
               </Link>
-              <Link href="/study" className="btn-secondary text-lg px-8 py-4">
+              <Link href="/study" className="btn-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 min-h-[48px] flex items-center justify-center">
                 Start Learning
               </Link>
             </div>
@@ -34,11 +34,11 @@ export default function Home() {
       </section>
 
       {/* Featured Guides - 3 cards max */}
-      <section className="container mx-auto px-4 py-20">
-        <h2 className="text-4xl font-bold mb-12 text-center">
+      <section className="container mx-auto px-4 py-12 sm:py-20">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">
           Featured <span className="text-primary">Guides</span>
         </h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {featuredGuides.map((guide) => (
             <GuideCard key={guide.slug} guide={guide} />
           ))}
@@ -46,11 +46,11 @@ export default function Home() {
       </section>
 
       {/* Study Tools Preview - Clean grid */}
-      <section className="container mx-auto px-4 py-20 bg-white/5">
-        <h2 className="text-4xl font-bold mb-12 text-center">
+      <section className="container mx-auto px-4 py-12 sm:py-20 bg-white/5">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">
           Powerful <span className="text-primary">Study Tools</span>
         </h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
           <div className="glass-card p-8 text-center hover:shadow-glow-md transition-all duration-300">
             <div className="text-6xl mb-6">🎴</div>
             <h3 className="text-xl font-bold mb-3 text-primary">Flashcards</h3>

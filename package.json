@@ -4,10 +4,11 @@
   "description": "The official knowledge hub for the Astral ecosystem",
   "scripts": {
     "dev": "next dev -p 7777",
-    "build": "next build",
+    "build": "npm run index-guides && next build",
     "start": "next start -p 7777",
     "lint": "next lint",
-    "index-guides": "tsx scripts/generate-guide-index.ts"
+    "index-guides": "tsx scripts/generate-guide-index.ts",
+    "postinstall": "npm run index-guides"
   },
   "dependencies": {
     "dexie": "^4.2.1",

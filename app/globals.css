@@ -79,8 +79,14 @@
   /* Markdown content styles */
 .markdown-content {
     @apply prose prose-invert;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7;
+  }
+  
+  @media (min-width: 640px) {
+    .markdown-content {
+      font-size: 18px;
+    }
   }
   .guide-highlight {
     @apply font-medium rounded px-1;

@@ -1,12 +1,11 @@
+'use client'
+
 import KnowledgeGraph from '@/components/KnowledgeGraph'
 import Link from 'next/link'
-
-export const metadata = {
-  title: 'Knowledge Graph | Astral Nexus',
-  description: 'Visualize connections between guides and concepts with an interactive knowledge graph',
-}
+import { useRouter } from 'next/navigation'
 
 export default function KnowledgeGraphPage() {
+  const router = useRouter()
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-7xl mx-auto">
@@ -58,8 +57,7 @@ export default function KnowledgeGraphPage() {
         <div className="glass-card p-4 rounded-lg" style={{ height: '70vh', minHeight: '500px' }}>
           <KnowledgeGraph 
             onNodeClick={(nodeId) => {
-              // Navigate to guide
-              window.location.href = `/guides/${nodeId}`
+              router.push(`/guides/${nodeId}`)
             }}
           />
         </div>

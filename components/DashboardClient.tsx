@@ -104,11 +104,11 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
       />
 
       {/* XP + Streak + Reviews + Achievements */}
-      <div className="mb-12 grid md:grid-cols-4 gap-6">
-        <div className="md:col-span-1"><XPDisplay /></div>
-        <div className="md:col-span-1"><StreakTracker /></div>
-        <div className="md:col-span-1"><ReviewsQueue onSummary={setReviewSummary} /></div>
-        <div className="md:col-span-1"><AchievementsPreview onSummary={setAchievementSummary} /></div>
+      <div className="mb-8 sm:mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div><XPDisplay /></div>
+        <div><StreakTracker /></div>
+        <div><ReviewsQueue onSummary={setReviewSummary} /></div>
+        <div><AchievementsPreview onSummary={setAchievementSummary} /></div>
       </div>
 
       {/* Continue & Guide Progress */}
