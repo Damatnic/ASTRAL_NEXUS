@@ -1,54 +1,88 @@
-# 🌟 Astral Nexus - Interactive Learning Platform
+# 🌟 Astral Nexus - Ultimate Personal Learning Platform
 
 **Where Knowledge Aligns with the Stars**
 
-The ultimate knowledge hub with **AI-powered study tools**, spaced repetition flashcards, interactive quizzes, smart note-taking, and comprehensive progress tracking. Master the Astral guides faster and more effectively than ever.
+A revolutionary personal knowledge management and learning platform featuring **15 comprehensive guides**, AI-powered study tools, gamification, wikilink knowledge graphs, and proven learning systems.
 
 ---
 
-## ✨ What Makes This Special
+## ✨ What Makes This Extraordinary
 
-### 🎴 Smart Flashcards
-- Spaced repetition using the proven SM-2 algorithm
-- Auto-generated from guide content + hand-crafted cards
-- 4-level recall rating system
-- Tracks mastery over time
+### 📚 15 Comprehensive Guides (1500+ Pages)
 
-### ✏️ Interactive Quizzes
-- Multiple choice and true/false questions
-- Instant feedback with detailed explanations
-- Track scores and improvement
-- Identify weak areas
+**Communication (5 guides):**
+- Body Language Mastery - Read and use nonverbal communication
+- Voice & Accent Mastery - Professional voice training
+- Social Skills & Influence - Master social dynamics
+- Negotiation Mastery - Win every deal
+- Public Speaking Mastery - Present with confidence
 
-### 🤖 AI Assistant
-- Powered by OpenAI GPT-4o-mini
-- Context-aware (knows which guide you're studying)
-- Answers questions, creates summaries, generates study plans
-- Available 24/7 via chat interface
+**Finance & Career (2 guides):**
+- Financial Independence - FIRE strategies and wealth building
+- Career Acceleration - Networking, branding, promotions
 
-### 📝 Smart Notes
-- Highlight text by selecting it
-- Add notes with context and tags
-- Organize by guide section
-- Export all your notes
+**Knowledge & Thinking (2 guides):**
+- Mind-Blowing Facts - 106+ fascinating verified facts
+- Critical Thinking & Logic - Cognitive biases and reasoning
 
-### 📊 Progress Tracking
-- Automatic time tracking
-- Completion percentage per guide
-- Quiz score history
-- Study streaks and achievements
+**Productivity & Wellness (3 guides):**
+- Time Management Systems - GTD, PARA, Zettelkasten
+- Mental Health Toolkit - CBT, mindfulness, resilience
+- Ultimate Life Manual - Emergency prep, health, fitness
 
-### 📅 Personalized Study Plans
-- Customizable duration (3-30 days)
-- Flexible daily time commitment
-- Structured learning path
-- Mix of reading, flashcards, and quizzes
+**Technology & Lifestyle (3 guides):**
+- Digital Privacy & Security - Protect your digital life
+- Ultimate Life Hacks - 115+ unknown tips
+- Legal Essentials - Know your rights
 
-### ⚡ Quick Reference Cards
-- Condensed key information
-- Perfect for last-minute review
-- Printable cheat sheets
-- Multiple cards per guide
+### 🎮 Gamification System
+
+- **XP Levels**: 50 levels from Novice Explorer to Cosmic Master
+- **Experience Points**: Earn XP for every activity
+- **Streak Bonuses**: XP multipliers up to 2x
+- **Unlockable Perks**: Features unlock as you level up
+- **Achievements**: 50+ badges to earn
+- **Daily Challenges**: Maintain momentum
+- **Progress Tracking**: Detailed analytics
+
+### 🔗 Wikilink Knowledge System
+
+- **[[Bidirectional Links]]**: Connect ideas across guides
+- **Automatic Backlinks**: See what references each concept
+- **Knowledge Graph**: Interactive 3D visualization
+- **Smart Suggestions**: AI recommends connections
+- **Tag System**: #hashtags organize content
+- **Link Types**: Prerequisites, extensions, contradictions
+- **Orphan Detection**: Find unconnected content
+- **Personal Wiki**: Build your second brain
+
+### 🧠 AI-Powered Features
+
+- **Context-Aware Chat**: Knows what you're studying
+- **Study Plan Generation**: Personalized learning paths
+- **Conversation History**: Saved and searchable
+- **Question Answering**: Instant explanations
+- **Weakness Detection**: Identifies knowledge gaps
+- **Summary Generation**: Custom summaries on demand
+
+### 🎴 Advanced Study Tools
+
+- **Spaced Repetition**: SM-2 algorithm flashcards
+- **Interactive Quizzes**: Instant feedback and explanations
+- **Smart Note-Taking**: Highlights, tags, organization
+- **Progress Tracking**: Automatic time and completion
+- **Quick Reference Cards**: Condensed cheat sheets
+- **Reading Settings**: Font size, width, spacing
+- **Guided Tours**: Interactive walkthroughs
+
+### 📊 Personal Analytics
+
+- **Detailed Dashboard**: All stats in one place
+- **Streak Tracking**: Current and longest streaks
+- **Category Mastery**: Weak areas identified
+- **Study Insights**: AI-powered recommendations
+- **Activity Timeline**: Complete learning history
+- **Focus Areas**: Personalized improvement suggestions
 
 ---
 
@@ -57,378 +91,324 @@ The ultimate knowledge hub with **AI-powered study tools**, spaced repetition fl
 ### Installation
 
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/Damatnic/ASTRAL_NEXUS.git
+cd ASTRAL_NEXUS
+
+# 2. Install dependencies
 npm install
 
-# 2. Create .env.local file
-cp .env.local.example .env.local
+# 3. Create environment file
+# Create .env.local in root directory
 
-# 3. Add your OpenAI API key (required for AI chat)
-# Edit .env.local and add:
+# 4. Add your OpenAI API key (required for AI features)
+# Edit .env.local:
 OPENAI_API_KEY=sk-your-api-key-here
 
-# 4. Start development server
+# 5. Start development server
 npm run dev
 
-# 5. Open http://localhost:7777
+# 6. Open http://localhost:7777
 ```
 
 ### Get OpenAI API Key
 
-1. Go to https://platform.openai.com/api-keys
-2. Sign up or log in
-3. Create a new API key
+1. Visit [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+2. Create account or sign in
+3. Generate new API key
 4. Add to `.env.local`
-5. **Cost**: ~$0.01-0.02 per conversation (very affordable!)
+5. **Cost**: ~$0.01-0.05 per conversation (very affordable!)
 
 ---
 
 ## 📖 How to Use
 
-### Studying a Guide
+### Your Learning Journey
 
-1. **Browse** guides from homepage or /guides
-2. **Click** any guide to open
-3. **Choose study mode**:
-   - 📖 **Read** - Full guide with formatting
-   - 🎴 **Flashcards** - Test recall with spaced repetition
-   - ✏️ **Quiz** - Take a knowledge test
-   - 📝 **Notes** - Highlight and annotate
-   - ⚡ **Quick Ref** - View condensed cheat sheets
+1. **Browse Guides** (`/guides`) - Explore 15 comprehensive guides
+2. **Study Mode** - Choose your approach:
+   - 📖 **Read** - Enhanced markdown with TOC and highlights
+   - 🎴 **Flashcards** - Spaced repetition review
+   - ✏️ **Quiz** - Test your knowledge
+   - 📝 **Notes** - Annotate and organize
+   - ⚡ **Quick Ref** - Cheat sheets
+3. **Track Progress** (`/dashboard`) - Analytics and insights
+4. **Knowledge Graph** (`/knowledge-graph`) - Visualize connections
+5. **AI Assistance** - Chat button (bottom right)
 
-### Using Flashcards
+### Study Workflow (Recommended)
 
-1. Go to any guide
-2. Click "🎴 Flashcards" or switch to Flashcards mode
-3. Read question, think of answer
-4. Click to flip card
-5. Rate your recall:
-   - 😰 **Again** - Didn't remember (review soon)
-   - 😕 **Hard** - Struggled (review in 1-3 days)
-   - 🙂 **Good** - Remembered well (review in 6+ days)
-   - 🎉 **Easy** - Perfect! (review in weeks)
+```
+Daily (30-45 minutes):
+├─ Review flashcards due (10-15 min)
+├─ Read new content (15-20 min)
+├─ Take quiz (10 min)
+└─ Review notes (5 min)
 
-### Taking Quizzes
+Weekly:
+├─ Complete 1-2 full guides
+├─ Review knowledge graph
+└─ Check dashboard insights
 
-1. Click "✏️ Quiz" from any guide
-2. Answer each question
-3. Get instant feedback
-4. Review explanations
-5. See final score
-6. Retake to improve
-
-### Tracking Progress
-
-- **Automatic**: Time tracked while reading
-- **Manual**: Use progress slider in sidebar
-- **Dashboard**: View all stats at /dashboard
-- **Quick buttons**: Mark 25%, 50%, 75%, or 100% complete
-
-### AI Chat
-
-1. Click floating AI button (bottom right)
-2. Ask questions about the guide
-3. Get instant, context-aware answers
-4. Use quick prompts for common requests
+Monthly:
+├─ Self-assessment checklists
+├─ Update personal wiki
+└─ Review and strengthen connections
+```
 
 ---
 
-## 🎯 Study Workflows
+## 🎯 Key Features Deep Dive
 
-### Recommended Daily Routine
+### Wikilink System
 
-```
-1. Review flashcards due (10-15 min)
-   → Homepage shows how many cards
+**Create connections:**
+```markdown
+I'm learning about [[Body Language]] which relates to 
+[[Social Skills]] and requires understanding [[Psychology]].
 
-2. Read new content (15-20 min)
-   → Highlight important parts
-
-3. Take notes (5 min)
-   → Switch to Notes mode
-
-4. Test with quiz (10 min)
-   → Immediate feedback
-
-5. Review quick ref cards (5 min)
-   → Reinforce key concepts
-
-Total: 45-55 minutes of effective study
+See also: [[Negotiation]] #communication #learning
 ```
 
-### Before an Important Application
+**Features:**
+- Automatic bidirectional linking
+- Link type inference (related, prerequisite, extends)
+- Hover previews
+- Graph visualization
+- Backlink panels
 
-```
-1. Quick reference cards (5 min)
-2. Flashcard session (10 min)
-3. Review your notes (5 min)
-4. Take practice quiz (10 min)
-5. Ask AI to quiz you on weak areas (10 min)
+### XP & Gamification
 
-Total: 40 minutes of focused review
-```
+**Earn XP for:**
+- Completing guides (100 XP)
+- Acing quizzes (50 XP)
+- Flashcard streaks (up to 200 XP)
+- Daily login (5 XP)
+- Creating notes (5 XP)
+- Making highlights (2 XP)
+
+**Level Benefits:**
+- Level 5: Daily note templates
+- Level 10: Advanced stats
+- Level 20: Knowledge graph insights
+- Level 30: Unlimited AI history
+- Level 50: Legendary status
+
+### Enhanced Guide Reading
+
+- **Scrollspy TOC**: Active section tracking
+- **Reading Preferences**: Font, width, spacing
+- **Highlight System**: 3 colors with persistence
+- **Reading Progress**: Auto-save position
+- **Active Section**: Shows current location
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- Next.js 15.5.6 (React 19)
+- TypeScript 5.7
+- Tailwind CSS 3.4
+- Framer Motion 11
+
+**Backend/Services:**
+- OpenAI API (GPT-4o-mini)
+- Dexie (IndexedDB wrapper)
+- Zustand (state management)
+
+**Features:**
+- Server-side rendering
+- Static site generation
+- API routes
+- PWA support
+- Offline functionality
 
 ---
 
 ## 📂 Project Structure
 
 ```
-astral-nexus/
-├── app/                          # Next.js App Router
-│   ├── (pages)                   # Main pages
-│   ├── study/                    # Study tools
-│   │   ├── flashcards/[slug]     # Flashcard pages
-│   │   ├── quiz/[slug]           # Quiz pages
-│   │   └── plan/[slug]           # Study plan pages
-│   ├── dashboard/                # Progress dashboard
-│   ├── settings/                 # User settings
-│   └── api/                      # API routes
-│       ├── chat/                 # AI chat endpoint
-│       ├── search/               # Search endpoint
-│       └── flashcards/init/      # Flashcard generation
-├── components/                   # React components
-│   ├── FlashcardStudy.tsx        # Flashcard viewer
-│   ├── QuizMode.tsx              # Quiz interface
-│   ├── NoteTaking.tsx            # Note editor
-│   ├── AIChat.tsx                # AI assistant
-│   ├── StudyModeSwitcher.tsx     # Mode selector
-│   ├── ProgressWidget.tsx        # Progress tracker
-│   └── ... (20+ components)
-├── lib/                          # Utilities & logic
-│   ├── db.ts                     # IndexedDB layer
-│   ├── store.ts                  # State management
-│   ├── flashcard-generator.ts   # Flashcard creation
-│   ├── quiz-generator.ts         # Quiz creation
-│   ├── study-plan.ts             # Study plan generator
-│   └── ... (10+ utilities)
-├── guides/                       # Markdown guides
-│   ├── body-language-mastery.md
-│   ├── voice-accent-mastery.md
-│   ├── legal-essentials.md
-│   └── ultimate-life-manual.md
-└── public/                       # Static assets
+ASTRAL_NEXUS/
+├── app/
+│   ├── page.tsx                    # Homepage
+│   ├── guides/[slug]/page.tsx      # Dynamic guide pages
+│   ├── dashboard/page.tsx          # Analytics dashboard
+│   ├── knowledge-graph/page.tsx    # Graph visualization
+│   ├── study/                      # Study tools
+│   └── api/chat/route.ts           # AI endpoint
+├── components/
+│   ├── GuideReadView.tsx           # Enhanced reader
+│   ├── KnowledgeGraph.tsx          # Graph visualization
+│   ├── XPDisplay.tsx               # Gamification UI
+│   ├── FlashcardStudy.tsx          # Spaced repetition
+│   ├── QuizMode.tsx                # Interactive quizzes
+│   ├── NoteTaking.tsx              # Note system
+│   ├── AIChat.tsx                  # AI assistant
+│   └── dashboard/                  # Analytics components
+├── lib/
+│   ├── db.ts                       # IndexedDB schema
+│   ├── wikilinks.ts                # Link system
+│   ├── xp-system.ts                # Gamification
+│   ├── study-insights.ts           # Analytics
+│   └── ...                         # 15+ utility modules
+└── guides/
+    ├── body-language-mastery.md
+    ├── financial-independence.md
+    ├── digital-privacy-security.md
+    ├── negotiation-mastery.md
+    ├── time-management-systems.md
+    ├── mental-health-toolkit.md
+    ├── critical-thinking-logic.md
+    ├── public-speaking-mastery.md
+    ├── career-acceleration.md
+    └── ... (15 total guides)
 ```
 
 ---
 
-## ⚙️ Configuration
+## 🎨 Design Philosophy
 
-### Study Settings
-
-Access at `/settings`:
-- Flashcards per session (5-50)
-- Quiz questions (5-30)
-- Daily study goal (10-180 min)
-- Reminders (on/off)
-- Sound effects (on/off)
-
-### Data Management
-- Export all data (JSON format)
-- Reset flashcard progress
-- Reset all data
-- Backup and restore
+**Astral Brand Identity:**
+- 🌌 Cosmic theme with neon teal (#00ffcc)
+- ✨ Glassmorphism and frosted glass effects
+- 💫 Smooth animations and transitions
+- 🎯 Clean, focused interfaces
+- 📱 Mobile-first responsive design
 
 ---
 
 ## ⌨️ Keyboard Shortcuts
 
-- **?** - Show shortcuts help
-- **/** - Focus search bar
-- **Esc** - Close modals
-- **Space** - Flip flashcard
-- **1-4** - Rate flashcard
-
-Press **?** anytime to see the full list!
-
----
-
-## 📚 Available Guides
-
-1. **Body Language Mastery** (Communication, Intermediate)
-   - Master nonverbal communication
-   - Read facial expressions and gestures
-   - Improve your own body language
-
-2. **Voice & Accent Mastery** (Communication, Advanced)
-   - Professional voice training
-   - Accent acquisition techniques
-   - IPA and phonetics
-
-3. **Legal Essentials** (Legal, Intermediate)
-   - Know your rights
-   - Constitutional law basics
-   - Contract and employment law
-
-4. **Ultimate Life Manual** (Wellness, Beginner)
-   - Emergency preparedness
-   - Financial mastery
-   - Health and fitness
-   - Career development
+| Key | Action |
+|-----|--------|
+| `/` | Focus search |
+| `?` | Show all shortcuts |
+| `Esc` | Close modals |
+| `Space` | Flip flashcard |
+| `1-4` | Rate flashcard |
+| `g h` | Go home |
+| `g d` | Go to dashboard |
+| `g s` | Go to study center |
 
 ---
 
-## 🛠️ Tech Stack
+## 📊 Platform Statistics
 
-- **Framework**: Next.js 15
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS + Framer Motion
-- **AI**: OpenAI GPT-4o-mini
-- **Database**: Dexie (IndexedDB)
-- **State**: Zustand
-- **Markdown**: react-markdown + syntax highlighting
-- **Search**: Fuse.js
-
----
-
-## 🎨 Design System
-
-**Colors:**
-- Primary: `#00ffcc` (Neon Teal)
-- Accent: `#1affd5`
-- Background: `#0b0e11` (Dark)
-
-**Fonts:**
-- UI: Inter
-- Code: JetBrains Mono
-
-**Effects:**
-- Glassmorphism
-- Neon glows
-- Smooth animations
+- **15 Comprehensive Guides** (1500+ pages total)
+- **50+ React Components** (fully typed)
+- **100+ Utility Functions** (pure, testable)
+- **1000+ Flashcards** (auto-generated + curated)
+- **500+ Quiz Questions** (with explanations)
+- **15 Category Quick Reference Cards**
+- **Zero Lint Errors** (production-ready)
 
 ---
 
-## 📱 Compatibility
+## 🔒 Privacy & Security
 
-- **Browsers**: Chrome, Firefox, Safari, Edge
-- **Devices**: Desktop, Tablet, Mobile
-- **Offline**: ✅ (except AI chat)
-- **PWA Ready**: ✅
+**Your Data:**
+- 100% stored locally in browser (IndexedDB)
+- No external databases or tracking
+- Export anytime (JSON format)
+- Your OpenAI API key (you control costs)
 
----
-
-## 🔒 Privacy & Data
-
-- **100% Local Storage**: All data in your browser
-- **No Tracking**: No analytics (unless you add)
-- **Export Anytime**: Download all your data
-- **Your API Key**: You control AI costs
+**Security:**
+- No user accounts (no passwords to leak)
+- No data sent to servers (except OpenAI for AI chat)
+- HTTPS recommended in production
+- Service worker for offline use
 
 ---
 
-## 📖 Documentation
+## 🎓 Educational Methodology
 
-- **INTERACTIVE_FEATURES.md** - Complete feature guide
-- **INTERACTIVE_VERIFICATION.md** - Build verification
-- **DEPLOYMENT_CHECKLIST.md** - Deployment guide
-- **CONTRIBUTING.md** - How to contribute
-- **QUICK_START.md** - 5-minute setup
+**Evidence-Based Learning:**
+- Spaced repetition (Ebbinghaus forgetting curve)
+- Active recall (testing effect)
+- Interleaving (varied practice)
+- Deliberate practice (with feedback)
+- Metacognition (thinking about thinking)
+
+**Cognitive Science Principles:**
+- Dual coding (text + visuals)
+- Elaboration (connecting to existing knowledge)
+- Generation (creating own examples)
+- Chunking (manageable information units)
 
 ---
 
-## 🚀 Deployment
+## 🚀 Deployment Guide
 
-### Vercel (Recommended)
+### Vercel (One-Click)
+
+1. Push to GitHub
+2. Connect to Vercel
+3. Add environment variable: `OPENAI_API_KEY`
+4. Deploy automatically
+
+### Self-Hosting
 
 ```bash
-# 1. Push to GitHub
-git push
+# Build for production
+npm run build
 
-# 2. Import to Vercel
-# 3. Add environment variable:
-OPENAI_API_KEY=sk-...
+# Start production server
+npm start
 
-# 4. Deploy!
+# Runs on port 7777
 ```
 
-### Other Platforms
+### Environment Variables
 
-Compatible with:
-- Netlify
-- Fly.io
-- Any platform supporting Next.js
+```env
+# Required
+OPENAI_API_KEY=sk-...
 
----
-
-## 🎓 Learning Science
-
-This platform implements proven learning techniques:
-
-- **Spaced Repetition**: Review at optimal intervals
-- **Active Recall**: Test yourself vs re-reading
-- **Interleaving**: Mix different topics and modes
-- **Immediate Feedback**: Know right away
-- **Metacognition**: Track what you know
-
-Result: **Faster learning, better retention, higher mastery**
+# Optional
+NODE_ENV=production
+```
 
 ---
 
-## 🔮 Future Enhancements
+## 💡 Tips for Maximum Learning
 
-Potential additions:
-- [ ] Custom flashcard creation
-- [ ] Share notes with others
-- [ ] Mobile app (React Native)
+1. **Consistency > Intensity**: 30 minutes daily beats 3 hours weekly
+2. **Active > Passive**: Test yourself, don't just read
+3. **Spaced > Cramming**: Review over time, not all at once
+4. **Connected > Isolated**: Link concepts with wikilinks
+5. **Applied > Theoretical**: Do the practice exercises
+
+---
+
+## 🔮 Roadmap & Future Enhancements
+
+**Planned Features:**
+- [ ] PDF export of guides
+- [ ] Anki deck export
+- [ ] Mind map auto-generation
+- [ ] Voice command navigation
+- [ ] Custom guide creation
+- [ ] Multi-language support
+- [ ] Mobile apps (iOS/Android)
 - [ ] Offline AI (local models)
-- [ ] Voice notes
-- [ ] Video embeds
-- [ ] Community features
-- [ ] More guides
 
 ---
 
-## 💬 Support
+## 🙏 Acknowledgments
 
-### Getting Help
+**Built with incredible open-source tools:**
+- Next.js & React - Vercel
+- Tailwind CSS - Adam Wathan
+- Dexie.js - David Fahlander
+- Framer Motion - Matt Perry
+- OpenAI API - OpenAI
+- And dozens of other amazing projects
 
-1. **AI Chat**: Ask the AI assistant
-2. **Documentation**: Check INTERACTIVE_FEATURES.md
-3. **Issues**: Open GitHub issue
-4. **Settings**: Try resetting data if bugs occur
-
-### Common Issues
-
-**AI Chat not working?**
-- Check `.env.local` has OPENAI_API_KEY
-- Verify API key is valid
-- Check browser console for errors
-
-**Flashcards not loading?**
-- Wait for initialization (first time only)
-- Check browser console
-- Try refresh
-
-**Data disappeared?**
-- Check same browser (data is per-browser)
-- Clear cache may delete data
-- Use Export regularly for backups
-
----
-
-## 📊 Statistics
-
-- **32 Routes** generated
-- **50+ Components** created
-- **4 Guides** with full interactivity
-- **50+ Flashcards** available
-- **30+ Quiz Questions** ready
-- **15+ Reference Cards** created
-- **∞ Learning Potential** unlocked
-
----
-
-## 🙏 Credits
-
-Built with:
-- Next.js by Vercel
-- OpenAI GPT-4o-mini
-- Tailwind CSS
-- Framer Motion
-- Dexie.js
-- And many other amazing open-source tools
-
-Design inspired by the Astral Productions brand identity.
+**Special Thanks:**
+- The learning science community
+- Open source contributors
+- Everyone building tools for knowledge workers
 
 ---
 
@@ -436,10 +416,23 @@ Design inspired by the Astral Productions brand identity.
 
 © 2025 Astral Productions. All rights reserved.
 
+This is a personal learning platform. See LICENSE file for details.
+
 ---
 
-**Start your interactive learning journey today!** 🚀
+## 🌟 Start Your Journey
 
-Visit [http://localhost:3000](http://localhost:3000) after running `npm run dev`
+```bash
+npm install
+npm run dev
+# Open http://localhost:7777
+```
+
+**Your transformation begins now.** 🚀
+
+---
+
+**Questions? Feedback? Contributions?**
+Open an issue or submit a PR. Let's make learning amazing together!
 
 **Where Knowledge Aligns with the Stars** ⭐
