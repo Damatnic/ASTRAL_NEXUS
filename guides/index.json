@@ -1,5 +1,41 @@
 [
   {
+    "slug": "negotiation-mastery",
+    "title": "Negotiation Mastery: Win Every Deal",
+    "description": "Master salary negotiations, contracts, and everyday situations. From anchoring techniques to emotional intelligence, become an expert negotiator.",
+    "category": "Communication",
+    "tags": [
+      "negotiation",
+      "salary",
+      "communication",
+      "influence",
+      "persuasion",
+      "conflict-resolution",
+      "business"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 2666,
+    "readingTime": "14 min read"
+  },
+  {
+    "slug": "public-speaking-mastery",
+    "title": "Public Speaking Mastery: Present with Confidence",
+    "description": "Conquer stage fright, craft compelling presentations, and captivate any audience. From storytelling techniques to body language, become a confident speaker.",
+    "category": "Communication",
+    "tags": [
+      "public-speaking",
+      "presentations",
+      "communication",
+      "storytelling",
+      "confidence",
+      "leadership",
+      "influence"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 3221,
+    "readingTime": "17 min read"
+  },
+  {
     "slug": "body-language-mastery",
     "title": "The Master Body Language Guide",
     "description": "Complete system for reading and using nonverbal communication - from facial expressions to posture, learn to decode and master body language",
@@ -70,6 +106,24 @@
     "readingTime": "11 min read"
   },
   {
+    "slug": "critical-thinking-logic",
+    "title": "Critical Thinking & Logic: Think Clearly in a World of Noise",
+    "description": "Master logical reasoning, identify cognitive biases, spot logical fallacies, and make better decisions. Think like a philosopher, decide like a strategist.",
+    "category": "Knowledge",
+    "tags": [
+      "critical-thinking",
+      "logic",
+      "reasoning",
+      "cognitive-biases",
+      "decision-making",
+      "philosophy",
+      "rationality"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 2954,
+    "readingTime": "15 min read"
+  },
+  {
     "slug": "mind-blowing-facts",
     "title": "Mind-Blowing Facts: 100+ Things You Never Knew",
     "description": "Discover astonishing, verified facts that will change how you see the world. From bizarre science and hidden history to unbelievable nature phenomena—these lesser-known truths will blow your mind.",
@@ -129,6 +183,25 @@
     "readingTime": "15 min read"
   },
   {
+    "slug": "time-management-systems",
+    "title": "Time Management Systems: GTD, PARA & Zettelkasten",
+    "description": "Master proven productivity systems. Implement Getting Things Done, PARA organization, and Zettelkasten for ultimate time and knowledge management.",
+    "category": "Productivity",
+    "tags": [
+      "productivity",
+      "time-management",
+      "GTD",
+      "PARA",
+      "zettelkasten",
+      "organization",
+      "systems",
+      "efficiency"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 2941,
+    "readingTime": "15 min read"
+  },
+  {
     "slug": "digital-privacy-security",
     "title": "Digital Privacy & Security: Complete Protection Guide",
     "description": "Protect your identity, data, and devices from modern threats. Master encryption, anonymous browsing, secure communications, and digital self-defense.",
@@ -146,6 +219,25 @@
     "difficulty": "intermediate",
     "wordCount": 2386,
     "readingTime": "12 min read"
+  },
+  {
+    "slug": "mental-health-toolkit",
+    "title": "Mental Health Toolkit: Stress Management & Resilience",
+    "description": "Evidence-based techniques for managing stress, anxiety, and depression. Build mental resilience with CBT, mindfulness, and proven therapeutic strategies.",
+    "category": "Wellness",
+    "tags": [
+      "mental-health",
+      "stress",
+      "anxiety",
+      "mindfulness",
+      "CBT",
+      "therapy",
+      "resilience",
+      "psychology"
+    ],
+    "difficulty": "beginner",
+    "wordCount": 3132,
+    "readingTime": "16 min read"
   },
   {
     "slug": "ultimate-life-manual",
