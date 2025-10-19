@@ -202,6 +202,25 @@
     "readingTime": "15 min read"
   },
   {
+    "slug": "career-acceleration",
+    "title": "Career Acceleration: Fast-Track Your Success",
+    "description": "Network strategically, build your personal brand, develop high-value skills, and accelerate your career growth. From job hunting to promotions, master career advancement.",
+    "category": "Professional",
+    "tags": [
+      "career",
+      "networking",
+      "personal-branding",
+      "job-search",
+      "skills",
+      "promotion",
+      "leadership",
+      "professional-development"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 3250,
+    "readingTime": "17 min read"
+  },
+  {
     "slug": "digital-privacy-security",
     "title": "Digital Privacy & Security: Complete Protection Guide",
     "description": "Protect your identity, data, and devices from modern threats. Master encryption, anonymous browsing, secure communications, and digital self-defense.",

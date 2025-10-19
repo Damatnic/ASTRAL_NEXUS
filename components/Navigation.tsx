@@ -12,6 +12,7 @@ export default function Navigation() {
     { name: 'Guides', href: '/guides' },
     { name: 'Study', href: '/study' },
     { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Knowledge Graph', href: '/knowledge-graph' },
     { name: 'Achievements', href: '/achievements' },
   ]
 
