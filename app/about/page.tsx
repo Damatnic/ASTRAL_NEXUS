@@ -63,18 +63,18 @@ export default function AboutPage() {
 
           <div className="glass-card p-6 border border-primary/20 mt-8">
             <p className="text-center text-lg italic text-gray-300">
-              "Where Knowledge Aligns with the Stars"
+              &ldquo;Where Knowledge Aligns with the Stars&rdquo;
             </p>
           </div>
         </div>
 
         <div className="text-center">
-          <a
+          <Link
             href="/guides"
             className="btn-primary inline-block"
           >
             Explore All Guides
-          </a>
+          </Link>
         </div>
       </div>
     </div>

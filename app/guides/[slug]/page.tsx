@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { getGuideBySlug, getAllGuides, getRelatedGuides } from '@/lib/guides'
 import { generateGuideMetadata } from '@/lib/metadata'
 import StudyModeSwitcher from '@/components/StudyModeSwitcher'
-import TableOfContents from '@/components/TableOfContents'
+import GuideTableOfContents from '@/components/GuideTableOfContents'
 import ProgressWidget from '@/components/ProgressWidget'
 import AIChat from '@/components/AIChat'
 import InteractiveTutorial from '@/components/InteractiveTutorial'
@@ -138,7 +138,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <aside className="lg:w-80 flex-shrink-0 space-y-6">
           <ProgressWidget guideSlug={slug} guideTitle={guide.title} />
           
-          <TableOfContents content={guide.content} />
+          <GuideTableOfContents content={guide.content} />
 
           {/* Related Guides */}
           {relatedGuides.length > 0 && (

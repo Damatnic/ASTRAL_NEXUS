@@ -26,8 +26,9 @@ export default function AchievementsPanel() {
     const flashcardsCount = await db.flashcards.where('repetitions').above(0).count()
     const totalTime = progress.reduce((sum, p) => sum + p.timeSpent, 0)
 
-    // TODO: Get actual streak data
-    const studyStreak = 0 // Placeholder
+    const data = await db.studySessions.orderBy('startTime').reverse().limit(30).toArray()
+    const uniqueDays = new Set(data.map(session => new Date(session.startTime).toISOString().split('T')[0]))
+    const studyStreak = uniqueDays.size
 
     const unlocked = await checkAndUnlockAchievements({
       guidesCompleted,
