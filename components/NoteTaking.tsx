@@ -24,6 +24,7 @@ export default function NoteTaking({ guideSlug, guideSections = [] }: NoteTaking
     // Listen for text selection (highlighting)
     document.addEventListener('mouseup', handleTextSelection)
     return () => document.removeEventListener('mouseup', handleTextSelection)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [guideSlug])
 
   const loadNotes = async () => {
@@ -95,7 +96,7 @@ export default function NoteTaking({ guideSlug, guideSections = [] }: NoteTaking
             {highlightText && (
               <div className="mb-4 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded">
                 <div className="text-xs text-yellow-400 mb-1">Highlighted Text:</div>
-                <div className="text-sm text-gray-300 italic">"{highlightText}"</div>
+                <div className="text-sm text-gray-300 italic">&ldquo;{highlightText}&rdquo;</div>
               </div>
             )}
 
@@ -178,7 +179,7 @@ export default function NoteTaking({ guideSlug, guideSections = [] }: NoteTaking
               {note.highlight && (
                 <div className="mb-3 p-3 bg-yellow-500/10 border-l-4 border-yellow-500 rounded">
                   <div className="text-xs text-yellow-400 mb-1">Highlight:</div>
-                  <div className="text-sm italic text-gray-300">"{note.highlight}"</div>
+                  <div className="text-sm italic text-gray-300">&ldquo;{note.highlight}&rdquo;</div>
                 </div>
               )}
 

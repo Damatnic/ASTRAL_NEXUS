@@ -44,7 +44,7 @@ interface AstralStore {
 
 export const useAstralStore = create<AstralStore>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       // Study Mode
       studyMode: 'read',
       setStudyMode: (mode) => set({ studyMode: mode }),
@@ -71,7 +71,7 @@ export const useAstralStore = create<AstralStore>()(
 
       // Study Session
       currentSessionStart: null,
-      startSession: (guideSlug) => set({ currentSessionStart: new Date() }),
+      startSession: () => set({ currentSessionStart: new Date() }),
       endSession: () => set({ currentSessionStart: null }),
 
       // Daily Goal

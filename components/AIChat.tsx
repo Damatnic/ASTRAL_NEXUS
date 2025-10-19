@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { db, AIConversation } from '@/lib/db'
 
 interface AIChatProps {
   guideSlug?: string
@@ -14,29 +13,11 @@ export default function AIChat({ guideSlug, guideTitle }: AIChatProps) {
   const [messages, setMessages] = useState<{ id: string; role: string; content: string }[]>([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [activeTab, setActiveTab] = useState<'ask' | 'plan' | 'history'>('ask')
-  const [conversations, setConversations] = useState<AIConversation[]>([])
-  const [selectedConversation, setSelectedConversation] = useState<number | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
-
-  useEffect(() => {
-    if (!isOpen) return
-    loadConversations()
-  }, [isOpen, guideSlug])
-
-  const loadConversations = async () => {
-    if (!db.aiConversations) return
-    const items = await db.aiConversations
-      .where('guideSlug')
-      .equals(guideSlug || null)
-      .reverse()
-      .sortBy('updatedAt')
-    setConversations(items.reverse().slice(0, 10))
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -169,7 +150,7 @@ export default function AIChat({ guideSlug, guideTitle }: AIChatProps) {
                 <div className="text-center py-8">
                   <div className="text-4xl mb-4">👋</div>
                   <p className="text-gray-400 mb-6">
-                    Hi! I'm your AI study assistant. Ask me anything about {guideTitle || 'the guides'}!
+                    Hi! I&apos;m your AI study assistant. Ask me anything about {guideTitle || 'the guides'}!
                   </p>
                   <div className="space-y-2">
                     {quickQuestions.map((q, idx) => (

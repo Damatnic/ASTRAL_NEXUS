@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAstralStore } from '@/lib/store'
 import { db } from '@/lib/db'
 

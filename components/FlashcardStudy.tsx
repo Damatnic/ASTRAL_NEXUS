@@ -17,6 +17,7 @@ export default function FlashcardStudy({ guideSlug, onComplete }: FlashcardStudy
 
   useEffect(() => {
     loadFlashcards()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [guideSlug])
 
   const loadFlashcards = async () => {
@@ -137,7 +138,7 @@ export default function FlashcardStudy({ guideSlug, onComplete }: FlashcardStudy
           >
             <div className="text-2xl mb-2">😰</div>
             <div className="font-semibold text-red-400">Again</div>
-            <div className="text-xs text-gray-500">Didn't recall</div>
+            <div className="text-xs text-gray-500">Didn&apos;t recall</div>
           </button>
           <button
             onClick={() => handleRate(3)}

@@ -71,7 +71,7 @@ export default function FeatureHighlight({ feature, title, description, tips }: 
                 onChange={(e) => setDontShowAgain(e.target.checked)}
                 className="rounded"
               />
-              Don't show again
+              Don&apos;t show again
             </label>
             <button
               onClick={handleClose}

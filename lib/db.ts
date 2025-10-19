@@ -84,7 +84,7 @@ export interface ActivityLogRow {
   id?: number
   type: 'note' | 'quiz' | 'flashcards' | 'highlight' | 'guide'
   guideSlug?: string
-  payload?: any
+  payload?: Record<string, unknown>
   createdAt: Date
 }
 
@@ -189,7 +189,7 @@ export async function addNote(note: Omit<UserNote, 'id' | 'createdAt' | 'updated
 
 export async function getFlashcardsForReview(guideSlug?: string): Promise<Flashcard[]> {
   const now = new Date()
-  let query = db.flashcards.where('nextReview').belowOrEqual(now)
+  const query = db.flashcards.where('nextReview').belowOrEqual(now)
   
   if (guideSlug) {
     const all = await query.toArray()

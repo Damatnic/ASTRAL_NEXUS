@@ -31,8 +31,6 @@ export function generateStudyPlan(
   dailyMinutes: number = 30
 ): StudyPlan {
   const days: StudyPlanDay[] = []
-  const wordCount = guide.content.split(/\s+/).length
-  const readingMinutes = Math.ceil(wordCount / 200) // 200 words per minute
   
   // Calculate sections
   const sections = extractSections(guide.content)

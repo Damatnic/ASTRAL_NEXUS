@@ -5,7 +5,6 @@ import { getAllProgress, getOverallStats, UserProgress, QuizResult, db } from '@
 import { getStudyInsights } from '@/lib/study-insights'
 import { Guide } from '@/lib/guides'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import StreakTracker from './StreakTracker'
 import DashboardHeader from './dashboard/DashboardHeader'
 import StatsCards from './dashboard/StatsCards'
@@ -32,6 +31,7 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
 
   useEffect(() => {
     loadDashboardData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadDashboardData = async () => {

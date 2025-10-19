@@ -14,6 +14,7 @@ export default function AchievementsPreview({ onSummary }: AchievementsPreviewPr
 
   useEffect(() => {
     refresh()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   async function refresh() {

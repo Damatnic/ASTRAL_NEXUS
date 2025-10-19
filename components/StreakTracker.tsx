@@ -17,7 +17,7 @@ export default function StreakTracker() {
   }
 
   const handleStudyToday = () => {
-    const updated = updateStreak()
+    updateStreak()
     loadStreak()
   }
 
@@ -63,7 +63,7 @@ export default function StreakTracker() {
           onClick={handleStudyToday}
           className="w-full btn-primary"
         >
-          Mark Today's Study Complete
+          Mark Today&apos;s Study Complete
         </button>
       )}
 

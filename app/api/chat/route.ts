@@ -1,7 +1,7 @@
 import OpenAI from 'openai'
 import { NextRequest, NextResponse } from 'next/server'
 import { getGuideBySlug } from '@/lib/guides'
-import { db, AIConversation, AIConversationMessage } from '@/lib/db'
+import { db, AIConversationMessage } from '@/lib/db'
 
 // Create OpenAI client
 const openai = new OpenAI({
@@ -59,17 +59,7 @@ Format the response with clear headings for each day.`
       max_tokens: 1000,
     })
 
-    // Stream the response
-    const stream = new ReadableStream({
-      async start(controller) {
-        for await (const chunk of response) {
-          const text = chunk.choices[0]?.delta?.content || ''
-          controller.enqueue(new TextEncoder().encode(text))
-        }
-        controller.close()
-      },
-    })
-
+    // Stream the response with conversation persistence
     const chunks: string[] = []
     const loggingStream = new ReadableStream({
       async start(controller) {

@@ -136,7 +136,7 @@ export default function SearchBar() {
           animate={{ opacity: 1 }}
           className="absolute w-full mt-2 glass-card rounded-lg p-6 text-center"
         >
-          <p className="text-gray-400">No guides found for "{query}"</p>
+          <p className="text-gray-400">No guides found for &ldquo;{query}&rdquo;</p>
         </motion.div>
       )}
     </div>

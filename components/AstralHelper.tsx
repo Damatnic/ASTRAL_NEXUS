@@ -9,9 +9,8 @@ interface AstralHelperProps {
   relatedGuides: { title: string; slug: string }[]
 }
 
-export default function AstralHelper({ currentGuideSlug, relatedGuides }: AstralHelperProps) {
+export default function AstralHelper({ relatedGuides }: AstralHelperProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [question, setQuestion] = useState('')
 
   const quickHelp = [
     'How do I navigate this guide?',
@@ -19,11 +18,6 @@ export default function AstralHelper({ currentGuideSlug, relatedGuides }: Astral
     'Show me similar guides',
     'Explain this concept',
   ]
-
-  const handleQuickHelp = (query: string) => {
-    setQuestion(query)
-    // In a real implementation, this would trigger contextual help
-  }
 
   return (
     <>

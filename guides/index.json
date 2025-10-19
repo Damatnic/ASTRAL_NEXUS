@@ -51,6 +51,27 @@
     "readingTime": "45 min read"
   },
   {
+    "slug": "mind-blowing-facts",
+    "title": "Mind-Blowing Facts: 100+ Things You Never Knew",
+    "description": "Discover astonishing, verified facts that will change how you see the world. From bizarre science and hidden history to unbelievable nature phenomena—these lesser-known truths will blow your mind.",
+    "category": "Knowledge",
+    "tags": [
+      "science",
+      "history",
+      "nature",
+      "psychology",
+      "space",
+      "animals",
+      "human-body",
+      "technology",
+      "geography",
+      "culture"
+    ],
+    "difficulty": "beginner",
+    "wordCount": 3579,
+    "readingTime": "18 min read"
+  },
+  {
     "slug": "legal-essentials",
     "title": "The Complete Legal Facts Master Guide",
     "description": "Comprehensive guide to your rights, responsibilities, and legal system navigation - from constitutional rights to contracts, employment to family law",
@@ -66,6 +87,27 @@
     "difficulty": "Intermediate",
     "wordCount": 7681,
     "readingTime": "39 min read"
+  },
+  {
+    "slug": "ultimate-life-hacks",
+    "title": "Ultimate Life Hacks: 100+ Tips Everyone Should Know",
+    "description": "A comprehensive collection of life-changing hacks across every category—from productivity and finance to health, technology, and beyond. Discover unknown tips and proven strategies that will transform your daily life.",
+    "category": "Lifestyle",
+    "tags": [
+      "productivity",
+      "health",
+      "finance",
+      "technology",
+      "home",
+      "travel",
+      "social-skills",
+      "time-management",
+      "wellness",
+      "organization"
+    ],
+    "difficulty": "beginner",
+    "wordCount": 2860,
+    "readingTime": "15 min read"
   },
   {
     "slug": "ultimate-life-manual",

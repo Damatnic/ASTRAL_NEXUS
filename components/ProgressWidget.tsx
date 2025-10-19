@@ -2,14 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import { getGuideProgress, updateGuideProgress } from '@/lib/db'
-import { motion } from 'framer-motion'
 
 interface ProgressWidgetProps {
   guideSlug: string
   guideTitle: string
 }
 
-export default function ProgressWidget({ guideSlug, guideTitle }: ProgressWidgetProps) {
+export default function ProgressWidget({ guideSlug }: ProgressWidgetProps) {
   const [progress, setProgress] = useState(0)
   const [timeSpent, setTimeSpent] = useState(0)
   const [sessionStart, setSessionStart] = useState<Date | null>(null)
@@ -39,6 +38,7 @@ export default function ProgressWidget({ guideSlug, guideTitle }: ProgressWidget
         }
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [guideSlug])
 
   const loadProgress = async () => {

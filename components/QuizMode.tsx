@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { QuizQuestion, generateQuizFromGuide } from '@/lib/quiz-generator'
 import { Guide } from '@/lib/guides'
-import { QuizResult, db } from '@/lib/db'
+import { db } from '@/lib/db'
 
 interface QuizModeProps {
   guide: Guide
@@ -109,7 +109,7 @@ export default function QuizMode({ guide, questionCount = 10 }: QuizModeProps) {
           </p>
 
           {percentage >= 90 && (
-            <p className="text-primary text-lg mb-8">Excellent work! You've mastered this material.</p>
+            <p className="text-primary text-lg mb-8">Excellent work! You&apos;ve mastered this material.</p>
           )}
           {percentage >= 70 && percentage < 90 && (
             <p className="text-accent text-lg mb-8">Good job! Review the areas you missed for mastery.</p>

@@ -70,7 +70,7 @@ export default function StatsCards({
 
   return (
     <div className="grid xl:grid-cols-3 sm:grid-cols-2 gap-6 mb-12">
-      {cards.map((card, index) => (
+      {cards.map((card) => (
         <motion.div
           key={card.label}
           initial={{ opacity: 0, y: 20 }}
