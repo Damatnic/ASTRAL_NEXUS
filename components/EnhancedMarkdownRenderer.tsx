@@ -75,12 +75,27 @@ export default function EnhancedMarkdownRenderer({ content }: EnhancedMarkdownRe
 }
 
 function generateId(children: React.ReactNode): string {
+  let text = ''
+  
   if (typeof children === 'string') {
-    return children.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    text = children
+  } else if (Array.isArray(children)) {
+    text = children.map(c => typeof c === 'string' ? c : '').join('')
+  } else {
+    return ''
   }
-  if (Array.isArray(children)) {
-    return children.map(c => typeof c === 'string' ? c : '').join('').toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  
+  // Convert to lowercase and replace non-alphanumeric with dashes
+  let id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  
+  // Remove leading/trailing dashes
+  id = id.replace(/^-+|-+$/g, '')
+  
+  // Ensure ID starts with a letter (CSS requirement)
+  if (id && /^[0-9]/.test(id)) {
+    id = 'heading-' + id
   }
-  return ''
+  
+  return id || 'heading'
 }
 

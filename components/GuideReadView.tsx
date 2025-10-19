@@ -289,8 +289,17 @@ function extractHeadings(content: string): TocHeading[] {
   while ((match = regex.exec(content)) !== null) {
     const level = match[1].length
     const text = match[2].trim()
-    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-    result.push({ id, text, level })
+    let id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    
+    // Remove leading/trailing dashes
+    id = id.replace(/^-+|-+$/g, '')
+    
+    // Ensure ID starts with a letter (CSS requirement)
+    if (id && /^[0-9]/.test(id)) {
+      id = 'heading-' + id
+    }
+    
+    result.push({ id: id || 'heading', text, level })
   }
   return result
 }
