@@ -1,0 +1,11 @@
+export default function Loading() {
+  return (
+    <div className="container mx-auto px-4 py-20">
+      <div className="flex flex-col items-center justify-center">
+        <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-gray-400">Loading Astral Nexus...</p>
+      </div>
+    </div>
+  )
+}
+

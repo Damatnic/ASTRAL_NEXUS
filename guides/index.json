@@ -1,0 +1,88 @@
+[
+  {
+    "slug": "body-language-mastery",
+    "title": "The Master Body Language Guide",
+    "description": "Complete system for reading and using nonverbal communication - from facial expressions to posture, learn to decode and master body language",
+    "category": "Communication",
+    "tags": [
+      "body language",
+      "nonverbal communication",
+      "social skills",
+      "psychology",
+      "communication"
+    ],
+    "difficulty": "Intermediate",
+    "wordCount": 8724,
+    "readingTime": "44 min read"
+  },
+  {
+    "slug": "social-skills-influence",
+    "title": "The Master Social Skills & Influence Guide",
+    "description": "Complete system for building charisma, mastering conversation, networking effectively, and ethically influencing others - from first impressions to lasting relationships",
+    "category": "Communication",
+    "tags": [
+      "social skills",
+      "charisma",
+      "networking",
+      "influence",
+      "persuasion",
+      "conversation",
+      "relationships"
+    ],
+    "difficulty": "Intermediate",
+    "wordCount": 5356,
+    "readingTime": "27 min read"
+  },
+  {
+    "slug": "voice-accent-mastery",
+    "title": "The Master Voice & Accent Guide",
+    "description": "Complete professional system for voice mastery and accent transformation - breathing, phonetics, accent acquisition, and vocal health",
+    "category": "Communication",
+    "tags": [
+      "voice training",
+      "accent",
+      "speech",
+      "pronunciation",
+      "public speaking",
+      "IPA"
+    ],
+    "difficulty": "Advanced",
+    "wordCount": 8839,
+    "readingTime": "45 min read"
+  },
+  {
+    "slug": "legal-essentials",
+    "title": "The Complete Legal Facts Master Guide",
+    "description": "Comprehensive guide to your rights, responsibilities, and legal system navigation - from constitutional rights to contracts, employment to family law",
+    "category": "Legal",
+    "tags": [
+      "legal rights",
+      "law",
+      "contracts",
+      "criminal law",
+      "civil rights",
+      "consumer protection"
+    ],
+    "difficulty": "Intermediate",
+    "wordCount": 7681,
+    "readingTime": "39 min read"
+  },
+  {
+    "slug": "ultimate-life-manual",
+    "title": "The Ultimate Life Manual",
+    "description": "Master Edition: Complete guide to survival, success, and thriving - from emergency preparedness to financial mastery, health to career success",
+    "category": "Wellness",
+    "tags": [
+      "life skills",
+      "survival",
+      "finance",
+      "health",
+      "career",
+      "productivity",
+      "self-improvement"
+    ],
+    "difficulty": "Beginner",
+    "wordCount": 12715,
+    "readingTime": "64 min read"
+  }
+]

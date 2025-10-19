@@ -1,0 +1,40 @@
+{
+  "name": "astral-nexus",
+  "version": "1.0.0",
+  "description": "The official knowledge hub for the Astral ecosystem",
+  "scripts": {
+    "dev": "next dev -p 7777",
+    "build": "next build",
+    "start": "next start -p 7777",
+    "lint": "next lint",
+    "index-guides": "tsx scripts/generate-guide-index.ts"
+  },
+  "dependencies": {
+    "dexie": "^4.2.1",
+    "framer-motion": "^11.11.17",
+    "fuse.js": "^7.0.0",
+    "gray-matter": "^4.0.3",
+    "lokijs": "^1.5.12",
+    "next": "^15.5.6",
+    "openai": "^6.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.6",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.18",
+    "tsx": "^4.20.6",
+    "typescript": "^5.7.3"
+  }
+}
