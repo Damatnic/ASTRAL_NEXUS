@@ -163,10 +163,18 @@
   .animate-slide-in {
     animation: slide-in 0.3s ease-out;
   }
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
   .reader-focus .glass-card { @apply bg-transparent border-0; }
   .reader-focus .glass-card-hover { @apply bg-transparent border-0; }
   .theme-sepia body { background-color: #1b1610; }
   .theme-night body { background-color: #050607; }
   .reader-hide-images img { display: none; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 

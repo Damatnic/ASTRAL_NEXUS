@@ -15,6 +15,7 @@ import ActivityTimeline from './dashboard/ActivityTimeline'
 import FocusAreas from './dashboard/FocusAreas'
 import RecommendedNext from './dashboard/RecommendedNext'
 import SummaryStrip from './dashboard/SummaryStrip'
+import XPDisplay from './XPDisplay'
 
 interface DashboardClientProps {
   allGuides: Guide[]
@@ -102,8 +103,9 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
         averageMinutes={insights?.averageMinutesPerDay || 0}
       />
 
-      {/* Streak + Reviews + Achievements */}
-      <div className="mb-12 grid md:grid-cols-3 gap-6">
+      {/* XP + Streak + Reviews + Achievements */}
+      <div className="mb-12 grid md:grid-cols-4 gap-6">
+        <div className="md:col-span-1"><XPDisplay /></div>
         <div className="md:col-span-1"><StreakTracker /></div>
         <div className="md:col-span-1"><ReviewsQueue onSummary={setReviewSummary} /></div>
         <div className="md:col-span-1"><AchievementsPreview onSummary={setAchievementSummary} /></div>
