@@ -12,8 +12,8 @@
       "communication"
     ],
     "difficulty": "Intermediate",
-    "wordCount": 8724,
-    "readingTime": "44 min read"
+    "wordCount": 10134,
+    "readingTime": "51 min read"
   },
   {
     "slug": "social-skills-influence",
@@ -49,6 +49,25 @@
     "difficulty": "Advanced",
     "wordCount": 8839,
     "readingTime": "45 min read"
+  },
+  {
+    "slug": "financial-independence",
+    "title": "Financial Independence: The Complete Roadmap",
+    "description": "Master money management, investing, and wealth building. From budgeting basics to FIRE strategies, achieve financial freedom with proven systems.",
+    "category": "Finance",
+    "tags": [
+      "finance",
+      "investing",
+      "FIRE",
+      "money",
+      "wealth",
+      "budgeting",
+      "passive-income",
+      "retirement"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 2128,
+    "readingTime": "11 min read"
   },
   {
     "slug": "mind-blowing-facts",
@@ -108,6 +127,25 @@
     "difficulty": "beginner",
     "wordCount": 2860,
     "readingTime": "15 min read"
+  },
+  {
+    "slug": "digital-privacy-security",
+    "title": "Digital Privacy & Security: Complete Protection Guide",
+    "description": "Protect your identity, data, and devices from modern threats. Master encryption, anonymous browsing, secure communications, and digital self-defense.",
+    "category": "Technology",
+    "tags": [
+      "privacy",
+      "security",
+      "cybersecurity",
+      "encryption",
+      "anonymity",
+      "data-protection",
+      "hacking",
+      "identity"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 2386,
+    "readingTime": "12 min read"
   },
   {
     "slug": "ultimate-life-manual",
