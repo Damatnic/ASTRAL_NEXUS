@@ -65,14 +65,14 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
     return (
       <div className="container mx-auto px-4 py-20">
         <div className="flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+          <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 pb-24 pt-12">
       <DashboardHeader
         nextGuide={guidesWithProgress
           .filter((g) => g.progress > 0)
@@ -113,22 +113,22 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
 
       {/* Continue & Guide Progress */}
       <ContinueLearning items={guidesWithProgress.filter(g => g.progress > 0)} reviewQueue={reviewSummary.due} />
-      <div className="mb-12">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">
-            Guide <span className="text-primary">Progress</span>
+      <div className="mb-16">
+        <div className="mb-8 flex items-center justify-between">
+          <h2 className="text-3xl font-semibold text-[color:var(--text-primary)]">
+            Guide progress
           </h2>
-          <Link href="/achievements" className="text-primary hover:text-accent transition-colors text-sm">
+          <Link href="/achievements" className="text-sm font-medium text-primary transition-colors hover:text-accent">
             View Achievements →
           </Link>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           {guidesWithProgress.map((guide) => (
-            <div key={guide.slug} className="glass-card p-6">
-              <div className="flex items-start justify-between mb-4">
+            <div key={guide.slug} className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm">
+              <div className="mb-5 flex items-start justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-1">{guide.title}</h3>
-                  <p className="text-sm text-gray-400">{guide.category}</p>
+                  <h3 className="mb-1 text-lg font-semibold text-[color:var(--text-primary)]">{guide.title}</h3>
+                  <p className="text-sm text-[color:var(--text-muted)]">{guide.category}</p>
                 </div>
                 {guide.completed && (
                   <div className="text-2xl">✓</div>
@@ -136,12 +136,12 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
               </div>
 
               {/* Progress Bar */}
-              <div className="mb-4">
-                <div className="flex justify-between text-sm text-gray-400 mb-2">
+              <div className="mb-5">
+                <div className="mb-2 flex justify-between text-sm text-[color:var(--text-muted)]">
                   <span>{guide.progress}% complete</span>
                   <span>{guide.timeSpent} min</span>
                 </div>
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 w-full overflow-hidden rounded-full bg-surface-muted/70">
                   <div
                     className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500"
                     style={{ width: `${guide.progress}%` }}
@@ -153,21 +153,21 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
               <div className="flex gap-2">
                 <Link
                   href={`/guides/${guide.slug}`}
-                  className="flex-1 text-center px-4 py-2 rounded-lg glass-card-hover text-sm"
+                  className="flex-1 rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-4 py-2 text-center text-sm font-medium text-[color:var(--text-primary)] transition-all hover:border-primary/60 hover:bg-surface-muted/60"
                 >
                   {guide.progress > 0 ? 'Continue' : 'Start'} Reading
                 </Link>
                 <Link
                   href={`/study/flashcards/${guide.slug}`}
-                  className="px-4 py-2 rounded-lg glass-card-hover text-sm"
+                  className="rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-4 py-2 text-sm transition-all hover:border-primary/60 hover:bg-surface-muted/60"
                 >
-                  📚 Flashcards
+                  📚
                 </Link>
                 <Link
                   href={`/study/quiz/${guide.slug}`}
-                  className="px-4 py-2 rounded-lg glass-card-hover text-sm"
+                  className="rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-4 py-2 text-sm transition-all hover:border-primary/60 hover:bg-surface-muted/60"
                 >
-                  ✏️ Quiz
+                  ✏️
                 </Link>
               </div>
             </div>
@@ -177,21 +177,21 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
 
       {/* Recent Quiz Results */}
       {recentQuizzes.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-bold mb-6">
-            Recent <span className="text-primary">Quiz Results</span>
+        <div className="mb-16">
+          <h2 className="mb-8 text-3xl font-semibold text-[color:var(--text-primary)]">
+            Recent quiz results
           </h2>
-          <div className="glass-card p-6">
-            <div className="space-y-4">
+          <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm">
+            <div className="space-y-3">
               {recentQuizzes.map((quiz, idx) => {
                 const guide = allGuides.find(g => g.slug === quiz.guideSlug)
                 const percentage = Math.round((quiz.score / quiz.totalQuestions) * 100)
                 
                 return (
-                  <div key={idx} className="flex items-center justify-between p-4 rounded-lg glass-card-hover">
+                  <div key={idx} className="flex items-center justify-between rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-4 transition-all hover:bg-surface-muted/60">
                     <div>
-                      <h4 className="font-semibold">{guide?.title || quiz.guideSlug}</h4>
-                      <p className="text-sm text-gray-400">
+                      <h4 className="font-semibold text-[color:var(--text-primary)]">{guide?.title || quiz.guideSlug}</h4>
+                      <p className="text-sm text-[color:var(--text-muted)]">
                         {new Date(quiz.completedAt).toLocaleDateString()}
                       </p>
                     </div>
@@ -203,7 +203,7 @@ export default function DashboardClient({ allGuides }: DashboardClientProps) {
                       }`}>
                         {percentage}%
                       </div>
-                      <p className="text-sm text-gray-400">
+                      <p className="text-sm text-[color:var(--text-muted)]">
                         {quiz.score}/{quiz.totalQuestions}
                       </p>
                     </div>

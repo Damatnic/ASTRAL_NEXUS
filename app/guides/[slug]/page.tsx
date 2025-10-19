@@ -33,60 +33,62 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const relatedGuides = getRelatedGuides(slug)
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 pb-24 pt-8">
       <InteractiveTutorial guideSlug={slug} guideTitle={guide.title} />
       
       {/* Breadcrumbs */}
-      <nav className="mb-8 flex items-center space-x-2 text-sm text-gray-400">
-        <Link href="/" className="hover:text-primary transition-colors">
+      <nav className="mb-10 flex items-center gap-2 text-sm text-[color:var(--text-muted)]">
+        <Link href="/" className="transition-colors hover:text-primary">
           Home
         </Link>
         <span>/</span>
-        <Link href="/guides" className="hover:text-primary transition-colors">
+        <Link href="/guides" className="transition-colors hover:text-primary">
           Guides
         </Link>
         <span>/</span>
         <Link
           href={`/guides?category=${guide.category.toLowerCase()}`}
-          className="hover:text-primary transition-colors"
+          className="transition-colors hover:text-primary"
         >
           {guide.category}
         </Link>
         <span>/</span>
-        <span className="text-white">{guide.title}</span>
+        <span className="text-[color:var(--text-primary)]">{guide.title}</span>
       </nav>
 
       {/* Header */}
-      <div className="mb-12">
-        <div className="flex flex-wrap gap-3 mb-4">
-          <span className="px-4 py-2 rounded-full bg-primary/20 text-primary border border-primary/30 font-semibold">
+      <div className="mb-16">
+        <div className="mb-6 flex flex-wrap items-center gap-3">
+          <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             {guide.category}
           </span>
           {guide.difficulty && (
-            <span className="px-4 py-2 rounded-full glass-card text-gray-300">
+            <span className="rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-4 py-1.5 text-xs font-medium text-[color:var(--text-secondary)]">
               {guide.difficulty}
             </span>
           )}
-          <span className="px-4 py-2 rounded-full glass-card text-gray-300">
+          <span className="rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-4 py-1.5 text-xs font-medium text-[color:var(--text-secondary)]">
             {guide.readingTime}
           </span>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 neon-text leading-tight">
+        <h1 className="mb-6 text-3xl font-semibold leading-tight text-[color:var(--text-primary)] sm:text-4xl md:text-5xl lg:text-6xl">
           {guide.title}
         </h1>
 
         {guide.description && (
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">{guide.description}</p>
+          <p className="mb-8 max-w-3xl text-base leading-relaxed text-[color:var(--text-secondary)] sm:text-lg md:text-xl">
+            {guide.description}
+          </p>
         )}
 
         {guide.tags && guide.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="mb-10 flex flex-wrap gap-2">
             {guide.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/guides?tag=${tag.toLowerCase()}`}
-                className="text-sm px-3 py-1 rounded-full glass-card text-accent hover:border-accent hover:shadow-glow-sm transition-all"
+                className="rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-3 py-1.5 text-xs font-medium text-primary/80 transition-all hover:border-primary/60 hover:bg-surface-muted/60 hover:text-primary"
               >
                 #{tag}
               </Link>
@@ -95,68 +97,82 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         )}
 
         {/* Study Tools Quick Access */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <Link
-            href={`/study/flashcards/${slug}`}
-            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
-          >
-            <div className="text-2xl sm:text-3xl mb-2">🎴</div>
-            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">Flashcards</div>
-          </Link>
-          <Link
-            href={`/study/quiz/${slug}`}
-            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
-          >
-            <div className="text-2xl sm:text-3xl mb-2">✏️</div>
-            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">Take Quiz</div>
-          </Link>
-          <Link
-            href={`/study/plan/${slug}`}
-            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
-          >
-            <div className="text-2xl sm:text-3xl mb-2">📅</div>
-            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">Study Plan</div>
-          </Link>
-          <Link
-            href={`/dashboard`}
-            className="glass-card-hover p-3 sm:p-4 text-center group min-h-[88px] flex flex-col items-center justify-center"
-          >
-            <div className="text-2xl sm:text-3xl mb-2">📊</div>
-            <div className="text-xs sm:text-sm font-semibold group-hover:text-primary transition-colors">My Progress</div>
-          </Link>
+        <div className="rounded-3xl border border-[color:var(--border-soft)] bg-surface/60 p-6">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-xs uppercase tracking-[0.3em] text-primary">Study Tools</h2>
+            <span className="text-xs text-[color:var(--text-muted)]">Quick access</span>
+          </div>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            <Link
+              href={`/study/flashcards/${slug}`}
+              className="group flex min-h-[100px] flex-col items-center justify-center rounded-2xl border border-[color:var(--border-soft)] bg-background/70 p-4 transition-all hover:border-primary/60 hover:bg-surface-muted/60 hover:shadow-glow-sm"
+            >
+              <div className="mb-3 text-3xl">🎴</div>
+              <div className="text-center text-sm font-semibold text-[color:var(--text-primary)] transition-colors group-hover:text-primary">
+                Flashcards
+              </div>
+            </Link>
+            <Link
+              href={`/study/quiz/${slug}`}
+              className="group flex min-h-[100px] flex-col items-center justify-center rounded-2xl border border-[color:var(--border-soft)] bg-background/70 p-4 transition-all hover:border-primary/60 hover:bg-surface-muted/60 hover:shadow-glow-sm"
+            >
+              <div className="mb-3 text-3xl">✏️</div>
+              <div className="text-center text-sm font-semibold text-[color:var(--text-primary)] transition-colors group-hover:text-primary">
+                Take Quiz
+              </div>
+            </Link>
+            <Link
+              href={`/study/plan/${slug}`}
+              className="group flex min-h-[100px] flex-col items-center justify-center rounded-2xl border border-[color:var(--border-soft)] bg-background/70 p-4 transition-all hover:border-primary/60 hover:bg-surface-muted/60 hover:shadow-glow-sm"
+            >
+              <div className="mb-3 text-3xl">📅</div>
+              <div className="text-center text-sm font-semibold text-[color:var(--text-primary)] transition-colors group-hover:text-primary">
+                Study Plan
+              </div>
+            </Link>
+            <Link
+              href={`/dashboard`}
+              className="group flex min-h-[100px] flex-col items-center justify-center rounded-2xl border border-[color:var(--border-soft)] bg-background/70 p-4 transition-all hover:border-primary/60 hover:bg-surface-muted/60 hover:shadow-glow-sm"
+            >
+              <div className="mb-3 text-3xl">📊</div>
+              <div className="text-center text-sm font-semibold text-[color:var(--text-primary)] transition-colors group-hover:text-primary">
+                Progress
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex flex-col lg:flex-row gap-12">
+      <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
         {/* Main Content - Study Mode Switcher */}
-        <article className="flex-1 min-w-0">
+        <article className="min-w-0 flex-1">
           <StudyModeSwitcher guide={guide} />
         </article>
 
         {/* Sidebar */}
-        <aside className="lg:w-80 flex-shrink-0 space-y-6">
+        <aside className="flex-shrink-0 space-y-6 lg:w-80">
           <ProgressWidget guideSlug={slug} guideTitle={guide.title} />
           
           <GuideTableOfContents content={guide.content} />
 
           {/* Related Guides */}
           {relatedGuides.length > 0 && (
-            <div className="glass-card p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-primary mb-4">
+            <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm">
+              <h3 className="mb-5 text-xs uppercase tracking-[0.3em] text-primary">
                 Related Guides
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {relatedGuides.map((relatedGuide) => (
                   <Link
                     key={relatedGuide.slug}
                     href={`/guides/${relatedGuide.slug}`}
-                    className="block p-4 rounded-lg glass-card-hover"
+                    className="block rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-4 transition-all hover:border-primary/60 hover:bg-surface-muted/60 hover:shadow-glow-sm"
                   >
-                    <h4 className="font-semibold text-white mb-1">
+                    <h4 className="mb-2 text-sm font-semibold text-[color:var(--text-primary)]">
                       {relatedGuide.title}
                     </h4>
-                    <p className="text-sm text-gray-400 line-clamp-2">
+                    <p className="line-clamp-2 text-xs leading-relaxed text-[color:var(--text-secondary)]">
                       {relatedGuide.description}
                     </p>
                   </Link>

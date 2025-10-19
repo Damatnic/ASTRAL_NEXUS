@@ -29,19 +29,27 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">
-          <span className="neon-text">Settings</span>
-        </h1>
+    <div className="container mx-auto px-4 pb-24 pt-16">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-16 text-center">
+          <span className="mb-6 inline-block rounded-full border border-[color:var(--border-soft)] bg-surface/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
+            Settings
+          </span>
+          <h1 className="mb-6 text-4xl font-semibold text-[color:var(--text-primary)] md:text-5xl">
+            Preferences & data
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg text-[color:var(--text-secondary)]">
+            Configure your study experience, manage learning data, and customize platform behavior.
+          </p>
+        </div>
 
         {/* Study Settings */}
-        <div className="glass-card p-8 mb-6">
-          <h2 className="text-2xl font-bold mb-6 text-primary">Study Preferences</h2>
+        <div className="mb-8 rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-8 shadow-inner-sm">
+          <h2 className="mb-6 text-2xl font-semibold text-primary">Study Preferences</h2>
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold mb-2">
+              <label className="mb-2 block text-sm font-semibold text-[color:var(--text-primary)]">
                 Flashcards Per Session
               </label>
               <input
@@ -50,15 +58,15 @@ export default function SettingsPage() {
                 max="50"
                 value={settings.flashcardsPerSession}
                 onChange={(e) => updateSettings({ flashcardsPerSession: Number(e.target.value) })}
-                className="w-full px-4 py-2 rounded-lg glass-card text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full rounded-xl border border-[color:var(--border-soft)] bg-surface/80 px-4 py-2 text-[color:var(--text-primary)] transition-all focus:border-primary/70 focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="mt-1 text-xs text-[color:var(--text-muted)]">
                 Number of flashcards to review in each session
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">
+              <label className="mb-2 block text-sm font-semibold text-[color:var(--text-primary)]">
                 Quiz Questions Per Session
               </label>
               <input
@@ -67,15 +75,15 @@ export default function SettingsPage() {
                 max="30"
                 value={settings.quizQuestionsPerSession}
                 onChange={(e) => updateSettings({ quizQuestionsPerSession: Number(e.target.value) })}
-                className="w-full px-4 py-2 rounded-lg glass-card text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full rounded-xl border border-[color:var(--border-soft)] bg-surface/80 px-4 py-2 text-[color:var(--text-primary)] transition-all focus:border-primary/70 focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="mt-1 text-xs text-[color:var(--text-muted)]">
                 Number of questions in each quiz
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">
+              <label className="mb-2 block text-sm font-semibold text-[color:var(--text-primary)]">
                 Daily Study Goal (minutes)
               </label>
               <input
@@ -85,41 +93,41 @@ export default function SettingsPage() {
                 step="5"
                 value={settings.studyGoalMinutes}
                 onChange={(e) => updateSettings({ studyGoalMinutes: Number(e.target.value) })}
-                className="w-full px-4 py-2 rounded-lg glass-card text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full rounded-xl border border-[color:var(--border-soft)] bg-surface/80 px-4 py-2 text-[color:var(--text-primary)] transition-all focus:border-primary/70 focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="mt-1 text-xs text-[color:var(--text-muted)]">
                 Your daily study time target
               </p>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-4">
               <div>
-                <div className="font-semibold">Study Reminders</div>
-                <p className="text-xs text-gray-500">Get notified about due flashcards</p>
+                <div className="font-semibold text-[color:var(--text-primary)]">Study Reminders</div>
+                <p className="text-xs text-[color:var(--text-muted)]">Get notified about due flashcards</p>
               </div>
               <button
                 onClick={() => updateSettings({ reminderEnabled: !settings.reminderEnabled })}
-                className={`px-4 py-2 rounded-lg transition-all ${
+                className={`rounded-xl px-4 py-2 transition-all ${
                   settings.reminderEnabled
-                    ? 'bg-primary text-astral-dark'
-                    : 'glass-card text-gray-400'
+                    ? 'bg-primary text-background'
+                    : 'border border-[color:var(--border-soft)] bg-surface/60 text-[color:var(--text-muted)]'
                 }`}
               >
                 {settings.reminderEnabled ? 'Enabled' : 'Disabled'}
               </button>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-4">
               <div>
-                <div className="font-semibold">Sound Effects</div>
-                <p className="text-xs text-gray-500">Play sounds for correct answers</p>
+                <div className="font-semibold text-[color:var(--text-primary)]">Sound Effects</div>
+                <p className="text-xs text-[color:var(--text-muted)]">Play sounds for correct answers</p>
               </div>
               <button
                 onClick={() => updateSettings({ soundEnabled: !settings.soundEnabled })}
-                className={`px-4 py-2 rounded-lg transition-all ${
+                className={`rounded-xl px-4 py-2 transition-all ${
                   settings.soundEnabled
-                    ? 'bg-primary text-astral-dark'
-                    : 'glass-card text-gray-400'
+                    ? 'bg-primary text-background'
+                    : 'border border-[color:var(--border-soft)] bg-surface/60 text-[color:var(--text-muted)]'
                 }`}
               >
                 {settings.soundEnabled ? 'Enabled' : 'Disabled'}
@@ -129,59 +137,57 @@ export default function SettingsPage() {
         </div>
 
         {/* Data Management */}
-        <div className="glass-card p-8 mb-6">
-          <h2 className="text-2xl font-bold mb-6 text-primary">Data Management</h2>
+        <div className="mb-8 rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-8 shadow-inner-sm">
+          <h2 className="mb-6 text-2xl font-semibold text-primary">Data Management</h2>
 
           <div className="space-y-4">
-            <div className="p-4 rounded-lg glass-card">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="font-semibold">Export Study Data</div>
-                  <p className="text-xs text-gray-500">Download your notes and progress</p>
-                </div>
-                <button
-                  onClick={async () => {
-                    const notes = await db.userNotes.toArray()
-                    const progress = await db.userProgress.toArray()
-                    const data = { notes, progress, exportedAt: new Date() }
-                    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
-                    const url = URL.createObjectURL(blob)
-                    const a = document.createElement('a')
-                    a.href = url
-                    a.download = `astral-nexus-backup-${new Date().toISOString().split('T')[0]}.json`
-                    a.click()
-                  }}
-                  className="btn-secondary"
-                >
-                  Export
-                </button>
+            <div className="flex items-center justify-between rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-4">
+              <div>
+                <div className="font-semibold text-[color:var(--text-primary)]">Export Study Data</div>
+                <p className="text-xs text-[color:var(--text-muted)]">Download your notes and progress</p>
               </div>
+              <button
+                onClick={async () => {
+                  const notes = await db.userNotes.toArray()
+                  const progress = await db.userProgress.toArray()
+                  const data = { notes, progress, exportedAt: new Date() }
+                  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+                  const url = URL.createObjectURL(blob)
+                  const a = document.createElement('a')
+                  a.href = url
+                  a.download = `astral-nexus-backup-${new Date().toISOString().split('T')[0]}.json`
+                  a.click()
+                }}
+                className="btn-secondary"
+              >
+                Export
+              </button>
             </div>
 
-            <div className="p-4 rounded-lg glass-card border-2 border-red-500/30">
+            <div className="rounded-2xl border-2 border-red-500/30 bg-red-500/5 p-4">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-semibold text-red-400">Reset Flashcards</div>
-                  <p className="text-xs text-gray-500">Clear all flashcard progress</p>
+                  <p className="text-xs text-[color:var(--text-muted)]">Clear all flashcard progress</p>
                 </div>
                 <button
                   onClick={handleResetFlashcards}
-                  className="px-4 py-2 rounded-lg bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30 transition-all"
+                  className="rounded-xl border border-red-500/30 bg-red-500/20 px-4 py-2 text-red-400 transition-all hover:bg-red-500/30"
                 >
                   Reset
                 </button>
               </div>
             </div>
 
-            <div className="p-4 rounded-lg glass-card border-2 border-red-500/30">
+            <div className="rounded-2xl border-2 border-red-500/30 bg-red-500/5 p-4">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-semibold text-red-400">Reset All Data</div>
-                  <p className="text-xs text-gray-500">Clear all progress, notes, and quiz results</p>
+                  <p className="text-xs text-[color:var(--text-muted)]">Clear all progress, notes, and quiz results</p>
                 </div>
                 <button
                   onClick={() => setShowReset(true)}
-                  className="px-4 py-2 rounded-lg bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30 transition-all"
+                  className="rounded-xl border border-red-500/30 bg-red-500/20 px-4 py-2 text-red-400 transition-all hover:bg-red-500/30"
                 >
                   Reset All
                 </button>
@@ -190,20 +196,20 @@ export default function SettingsPage() {
           </div>
 
           {showReset && (
-            <div className="mt-6 p-4 bg-red-500/10 border-2 border-red-500 rounded-lg">
-              <p className="text-red-400 font-semibold mb-4">
+            <div className="mt-6 rounded-2xl border-2 border-red-500 bg-red-500/10 p-4">
+              <p className="mb-4 font-semibold text-red-400">
                 ⚠️ This will permanently delete ALL your data. Are you absolutely sure?
               </p>
               <div className="flex gap-3">
                 <button
                   onClick={handleResetProgress}
-                  className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                  className="rounded-xl bg-red-500 px-6 py-2 text-white transition-colors hover:bg-red-600"
                 >
                   Yes, Delete Everything
                 </button>
                 <button
                   onClick={() => setShowReset(false)}
-                  className="px-6 py-2 glass-card rounded-lg"
+                  className="rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-6 py-2 text-[color:var(--text-primary)] transition-all hover:bg-surface-muted/60"
                 >
                   Cancel
                 </button>
@@ -213,13 +219,13 @@ export default function SettingsPage() {
         </div>
 
         {/* About Astral Nexus */}
-        <div className="glass-card p-8">
-          <h2 className="text-2xl font-bold mb-4 text-primary">About Astral Nexus</h2>
-          <p className="text-gray-300 mb-4">
+        <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-8 shadow-inner-sm">
+          <h2 className="mb-4 text-2xl font-semibold text-primary">About Astral Nexus</h2>
+          <p className="mb-4 text-[color:var(--text-secondary)]">
             Your comprehensive interactive learning platform with AI-powered study tools,
             spaced repetition flashcards, progress tracking, and more.
           </p>
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-[color:var(--text-muted)]">
             <p>Version: 1.0.0</p>
             <p>Built with Next.js 15, React, and TypeScript</p>
           </div>

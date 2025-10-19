@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { getAllGuides, getAllCategories } from '@/lib/guides'
 import GuideCard from '@/components/GuideCard'
 import CategoryFilter from '@/components/CategoryFilter'
@@ -24,41 +25,56 @@ export default async function GuidesPage({
     : allGuides
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          All <span className="neon-text">Guides</span>
-        </h1>
-        <p className="text-xl text-gray-400">
-          {selectedCategory
-            ? `Showing ${filteredGuides.length} guides in ${selectedCategory}`
-            : `Explore ${allGuides.length} comprehensive guides across all categories`}
-        </p>
+    <div className="container mx-auto px-4 pb-24 pt-16">
+      <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+        <div className="space-y-4">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary">Astral guide library</span>
+          <h1 className="text-4xl font-semibold text-[color:var(--text-primary)] md:text-5xl">
+            All guides
+          </h1>
+          <p className="max-w-2xl text-base text-[color:var(--text-secondary)]">
+            {selectedCategory
+              ? `Curated guides focused on ${selectedCategory.toLowerCase()}, blending strategic perspective with actionable practice.`
+              : `Explore ${allGuides.length} evidence-backed guides spanning performance, leadership, communication, and beyond.`}
+          </p>
+        </div>
+        <div className="flex items-center gap-6 rounded-3xl border border-[color:var(--border-soft)] bg-background/70 px-6 py-4 text-sm text-[color:var(--text-secondary)]">
+          <div className="flex items-center gap-2">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary">Guides</span>
+            <span className="text-lg font-semibold text-[color:var(--text-primary)]">{filteredGuides.length}</span>
+          </div>
+          <div className="h-8 w-px bg-[color:var(--border-soft)]" aria-hidden />
+          <div className="flex items-center gap-2">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary">Categories</span>
+            <span className="text-lg font-semibold text-[color:var(--text-primary)]">{categories.length}</span>
+          </div>
+        </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Sidebar */}
-        <aside className="lg:w-64 flex-shrink-0">
-          <CategoryFilter categories={categories} selectedCategory={selectedCategory} />
-        </aside>
+      <div className="mt-16 grid gap-10 lg:grid-cols-[0.28fr_0.72fr]">
+        <CategoryFilter categories={categories} selectedCategory={selectedCategory} />
 
-        {/* Guides Grid */}
-        <div className="flex-1">
+        <div className="space-y-6">
           {filteredGuides.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid gap-6 md:grid-cols-2">
               {filteredGuides.map((guide) => (
                 <GuideCard key={guide.slug} guide={guide} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-20">
-              <div className="text-6xl mb-4">📚</div>
-              <h2 className="text-2xl font-semibold mb-2">No guides found</h2>
-              <p className="text-gray-400">
-                {selectedCategory
-                  ? `No guides available in the ${selectedCategory} category yet.`
-                  : 'No guides available yet. Check back soon!'}
+            <div className="flex flex-col items-center justify-center gap-6 rounded-3xl border border-[color:var(--border-soft)] bg-background/70 py-24 text-center">
+              <div className="rounded-2xl border border-primary/20 bg-primary/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                No guides yet
+              </div>
+              <h2 className="text-2xl font-semibold text-[color:var(--text-primary)]">
+                We&apos;re expanding this collection
+              </h2>
+              <p className="max-w-lg text-sm text-[color:var(--text-secondary)]">
+                The editorial team is refining resources for this discipline. Check back soon or suggest a topic for us to prioritise.
               </p>
+              <Link href="/contact" className="btn-secondary">
+                Suggest a guide
+              </Link>
             </div>
           )}
         </div>

@@ -14,13 +14,13 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="container mx-auto px-4 py-20">
-      <div className="max-w-2xl mx-auto text-center">
-        <div className="glass-card p-12">
-          <div className="text-6xl mb-6">⚠️</div>
-          <h1 className="text-4xl font-bold mb-4">Something Went Wrong</h1>
-          <p className="text-xl text-gray-400 mb-8">
-            An error occurred while loading this page.
+    <div className="container mx-auto px-4 pb-24 pt-20">
+      <div className="mx-auto max-w-2xl text-center">
+        <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-12 shadow-inner-sm">
+          <div className="mb-6 text-6xl">⚠️</div>
+          <h1 className="mb-6 text-4xl font-semibold text-[color:var(--text-primary)]">Something Went Wrong</h1>
+          <p className="mb-10 text-lg leading-relaxed text-[color:var(--text-secondary)]">
+            An unexpected error occurred while loading this page. Please try again.
           </p>
           <button onClick={() => reset()} className="btn-primary">
             Try Again

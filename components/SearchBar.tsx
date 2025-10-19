@@ -79,14 +79,14 @@ export default function SearchBar() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search guides, topics, or keywords..."
-            className="w-full px-6 py-4 rounded-lg glass-card text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+            className="w-full rounded-2xl border border-[color:var(--border-soft)] bg-surface/80 px-6 py-4 text-[color:var(--text-primary)] placeholder:text-[color:var(--text-muted)] transition-all focus:border-primary/70 focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
           <div className="absolute right-4 top-1/2 -translate-y-1/2">
             {isLoading ? (
-              <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+              <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent"></div>
             ) : (
               <svg
-                className="w-6 h-6 text-gray-400"
+                className="h-6 w-6 text-[color:var(--text-muted)]"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -108,21 +108,21 @@ export default function SearchBar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute w-full mt-2 glass-card border border-white/20 rounded-lg shadow-glow-md max-h-96 overflow-y-auto z-50"
+            className="absolute z-50 mt-2 w-full max-h-96 overflow-y-auto rounded-2xl border border-[color:var(--border-strong)] bg-background/95 shadow-glow-md backdrop-blur-xl"
           >
             {results.map((result) => (
               <button
                 key={result.slug}
                 onClick={() => handleResultClick(result.slug)}
-                className="w-full text-left px-6 py-4 hover:bg-white/10 transition-colors border-b border-white/10 last:border-b-0"
+                className="w-full border-b border-[color:var(--border-soft)] px-6 py-4 text-left transition-colors last:border-b-0 hover:bg-surface-muted/60"
               >
-                <div className="flex items-center justify-between mb-1">
-                  <h4 className="font-semibold text-white">{result.title}</h4>
-                  <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary">
+                <div className="mb-2 flex items-center justify-between">
+                  <h4 className="font-semibold text-[color:var(--text-primary)]">{result.title}</h4>
+                  <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                     {result.category}
                   </span>
                 </div>
-                <p className="text-sm text-gray-400 line-clamp-2">{result.snippet}</p>
+                <p className="line-clamp-2 text-sm text-[color:var(--text-secondary)]">{result.snippet}</p>
               </button>
             ))}
           </motion.div>
@@ -134,9 +134,9 @@ export default function SearchBar() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="absolute w-full mt-2 glass-card rounded-lg p-6 text-center"
+          className="absolute z-50 mt-2 w-full rounded-2xl border border-[color:var(--border-soft)] bg-background/95 p-6 text-center backdrop-blur-xl"
         >
-          <p className="text-gray-400">No guides found for &ldquo;{query}&rdquo;</p>
+          <p className="text-[color:var(--text-secondary)]">No guides found for &ldquo;{query}&rdquo;</p>
         </motion.div>
       )}
     </div>

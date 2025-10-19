@@ -69,18 +69,18 @@ export default function StatsCards({
   ]
 
   return (
-    <div className="grid xl:grid-cols-3 sm:grid-cols-2 gap-6 mb-12">
+    <div className="mb-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
       {cards.map((card) => (
         <motion.div
           key={card.label}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: card.delay }}
-          className="glass-card p-6"
+          className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm"
         >
-          <div className={`text-4xl font-bold mb-2 ${card.color}`}>{card.value}</div>
-          <div className="text-gray-200 font-semibold mb-1">{card.label}</div>
-          <p className="text-sm text-gray-400 leading-relaxed">{card.description}</p>
+          <div className={`mb-2 text-4xl font-bold ${card.color}`}>{card.value}</div>
+          <div className="mb-1 font-semibold text-[color:var(--text-primary)]">{card.label}</div>
+          <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">{card.description}</p>
         </motion.div>
       ))}
     </div>

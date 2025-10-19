@@ -6,15 +6,15 @@ interface BadgeProps {
 
 export default function Badge({ children, variant = 'primary', size = 'md' }: BadgeProps) {
   const variants = {
-    primary: 'bg-primary/20 text-primary border-primary/30',
-    secondary: 'bg-white/10 text-gray-300 border-white/20',
-    accent: 'bg-accent/20 text-accent border-accent/30',
+    primary: 'bg-primary/10 text-primary border-primary/40',
+    secondary: 'bg-surface/60 text-[color:var(--text-secondary)] border-[color:var(--border-soft)]',
+    accent: 'bg-accent/10 text-accent border-accent/40',
   }
 
   const sizes = {
-    sm: 'px-2 py-1 text-xs',
-    md: 'px-3 py-1 text-sm',
-    lg: 'px-4 py-2 text-base',
+    sm: 'px-2 py-1 text-[11px] tracking-[0.3em] uppercase',
+    md: 'px-3 py-1.5 text-xs tracking-[0.3em] uppercase',
+    lg: 'px-4 py-2 text-sm tracking-[0.3em] uppercase',
   }
 
   return (

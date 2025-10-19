@@ -55,18 +55,18 @@ export default function ProgressWidget({ guideSlug }: ProgressWidgetProps) {
   }
 
   return (
-    <div className="glass-card p-6 rounded-lg sticky top-20">
-      <h3 className="text-lg font-semibold text-primary mb-4">Your Progress</h3>
+    <div className="sticky top-28 rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm">
+      <h3 className="mb-5 text-xs uppercase tracking-[0.3em] text-primary">Your Progress</h3>
       
       {/* Progress Circle */}
-      <div className="flex justify-center mb-6">
-        <div className="relative w-32 h-32">
-          <svg className="w-full h-full transform -rotate-90">
+      <div className="mb-6 flex justify-center">
+        <div className="relative h-32 w-32">
+          <svg className="h-full w-full -rotate-90 transform">
             <circle
               cx="64"
               cy="64"
               r="56"
-              stroke="rgba(255,255,255,0.1)"
+              stroke="rgba(148, 163, 184, 0.15)"
               strokeWidth="8"
               fill="none"
             />
@@ -82,25 +82,25 @@ export default function ProgressWidget({ guideSlug }: ProgressWidgetProps) {
             />
             <defs>
               <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00ffcc" />
-                <stop offset="100%" stopColor="#1affd5" />
+                <stop offset="0%" stopColor="#38bdf8" />
+                <stop offset="100%" stopColor="#0ea5e9" />
               </linearGradient>
             </defs>
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-3xl font-bold neon-text">{Math.round(progress)}%</span>
+            <span className="text-3xl font-bold text-primary">{Math.round(progress)}%</span>
           </div>
         </div>
       </div>
 
       {/* Stats */}
-      <div className="space-y-3 mb-6">
+      <div className="mb-6 space-y-3">
         <div className="flex justify-between text-sm">
-          <span className="text-gray-400">Time Spent:</span>
+          <span className="text-[color:var(--text-secondary)]">Time Spent:</span>
           <span className="font-semibold text-primary">{timeSpent} min</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-400">Status:</span>
+          <span className="text-[color:var(--text-secondary)]">Status:</span>
           <span className={`font-semibold ${progress >= 100 ? 'text-green-400' : 'text-accent'}`}>
             {progress >= 100 ? '✓ Completed' : 'In Progress'}
           </span>
@@ -109,7 +109,7 @@ export default function ProgressWidget({ guideSlug }: ProgressWidgetProps) {
 
       {/* Manual Progress Update */}
       <div className="mb-6">
-        <label className="block text-sm text-gray-400 mb-2">Update Progress</label>
+        <label className="mb-2 block text-sm text-[color:var(--text-secondary)]">Update Progress</label>
         <div className="flex gap-2">
           <input
             type="range"
@@ -117,9 +117,9 @@ export default function ProgressWidget({ guideSlug }: ProgressWidgetProps) {
             max="100"
             value={progress}
             onChange={(e) => handleProgressUpdate(Number(e.target.value))}
-            className="flex-1"
+            className="flex-1 accent-primary"
           />
-          <span className="text-sm font-mono text-gray-400 w-12">{Math.round(progress)}%</span>
+          <span className="w-12 font-mono text-sm text-[color:var(--text-muted)]">{Math.round(progress)}%</span>
         </div>
       </div>
 
@@ -127,25 +127,25 @@ export default function ProgressWidget({ guideSlug }: ProgressWidgetProps) {
       <div className="space-y-2">
         <button
           onClick={() => handleProgressUpdate(25)}
-          className="w-full text-left px-3 py-2 rounded-lg glass-card-hover text-sm"
+          className="w-full rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-3 py-2 text-left text-sm text-[color:var(--text-primary)] transition-all hover:border-primary/60 hover:bg-surface-muted/60"
         >
           📍 25% - Introduction complete
         </button>
         <button
           onClick={() => handleProgressUpdate(50)}
-          className="w-full text-left px-3 py-2 rounded-lg glass-card-hover text-sm"
+          className="w-full rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-3 py-2 text-left text-sm text-[color:var(--text-primary)] transition-all hover:border-primary/60 hover:bg-surface-muted/60"
         >
           📍 50% - Halfway there
         </button>
         <button
           onClick={() => handleProgressUpdate(75)}
-          className="w-full text-left px-3 py-2 rounded-lg glass-card-hover text-sm"
+          className="w-full rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-3 py-2 text-left text-sm text-[color:var(--text-primary)] transition-all hover:border-primary/60 hover:bg-surface-muted/60"
         >
           📍 75% - Almost done
         </button>
         <button
           onClick={() => handleProgressUpdate(100)}
-          className="w-full text-left px-3 py-2 rounded-lg glass-card-hover text-sm"
+          className="w-full rounded-xl border border-[color:var(--border-soft)] bg-surface/60 px-3 py-2 text-left text-sm text-[color:var(--text-primary)] transition-all hover:border-primary/60 hover:bg-surface-muted/60"
         >
           ✓ 100% - Mark complete
         </button>

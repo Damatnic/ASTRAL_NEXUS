@@ -94,13 +94,14 @@ function inferLinkType(context: string): WikiLink['linkType'] {
 /**
  * Get all backlinks for a given page
  */
-export async function getBacklinks(_targetId: string): Promise<WikiLink[]> {
+export async function getBacklinks(targetId: string): Promise<WikiLink[]> {
   // In a real implementation, this would query the database
   // For now, we'll parse all guides and find links
   const backlinks: WikiLink[] = []
   
   // This would need to iterate through all guides and notes
-  // and find links pointing to _targetId
+  // and find links pointing to targetId
+  console.log(`Finding backlinks for: ${targetId}`)
   
   return backlinks
 }
@@ -192,14 +193,17 @@ export function wikilinkToHtml(content: string): string {
 
 /**
  * Get related pages based on shared links and tags
+ * @param pageId - The ID of the page to find related pages for
+ * @param limit - Maximum number of related pages to return
  */
-export async function getRelatedPages(_pageId: string, _limit: number = 5): Promise<WikiNode[]> {
+export async function getRelatedPages(pageId: string, limit: number = 5): Promise<WikiNode[]> {
   // This would:
   // 1. Get all links from this page
   // 2. Get all pages that link to the same targets
   // 3. Get all pages with similar tags
   // 4. Score by relevance
-  // 5. Return top _limit results
+  // 5. Return top limit results
+  console.log(`Finding ${limit} related pages for: ${pageId}`)
   
   return []
 }
@@ -274,15 +278,18 @@ export async function autocompleteLinkTarget(partial: string): Promise<string[]>
 
 /**
  * Create breadcrumb trail through links
+ * @param currentPage - The page to find breadcrumb trails to
+ * @param maxDepth - Maximum depth of breadcrumb trail
  */
 export async function getBreadcrumbTrail(
-  _currentPage: string,
-  _maxDepth: number = 5
+  currentPage: string,
+  maxDepth: number = 5
 ): Promise<string[][]> {
   const trails: string[][] = []
   
   // Find all paths from home/index to current page
   // This would use BFS/DFS through the link graph
+  console.log(`Finding breadcrumb trails for: ${currentPage} (max depth: ${maxDepth})`)
   
   return trails
 }

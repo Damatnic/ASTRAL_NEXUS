@@ -18,13 +18,13 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Astral Nexus - Where Knowledge Aligns with the Stars',
-  description: 'The official knowledge hub for the Astral ecosystem. Explore guides, tutorials, and resources across tech, wellness, finance, and creativity.',
-  keywords: ['Astral', 'knowledge hub', 'guides', 'tutorials', 'learning'],
-  authors: [{ name: 'Astral Productions' }],
+  title: 'Astral Nexus - Professional Guide Library for Ambitious Learners',
+  description: 'A curated repository of expert-crafted guides spanning communication, finance, productivity, wellness, and beyond. Structured for comprehension and mastery.',
+  keywords: ['guide library', 'knowledge base', 'learning platform', 'professional development', 'skill mastery', 'curated guides', 'Astral Nexus'],
+  authors: [{ name: 'Astral Nexus' }],
   openGraph: {
-    title: 'Astral Nexus',
-    description: 'Where Knowledge Aligns with the Stars',
+    title: 'Astral Nexus Guide Library',
+    description: 'Knowledge crafted for ambitious learners',
     type: 'website',
   },
 }
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans">
-        <div className="min-h-screen flex flex-col">
+        <div className="flex min-h-screen flex-col bg-background text-[color:var(--text-primary)]">
           <Navigation />
           <main className="flex-1">
             {children}

@@ -7,75 +7,88 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-          About <span className="neon-text">Astral Nexus</span>
-        </h1>
-
-        <div className="glass-card p-8 md:p-12 mb-8">
-          <h2 className="text-2xl font-semibold text-primary mb-4">Our Mission</h2>
-          <p className="text-gray-300 mb-6 leading-relaxed">
-            Astral Nexus is the official knowledge hub for the Astral ecosystem. We believe
-            that knowledge should be accessible, comprehensive, and beautifully presented.
-            Our mission is to aggregate all existing Astral guides, manuals, and tutorials
-            into a dynamic, searchable, and interactive web platform.
+    <div className="container mx-auto px-4 pb-24 pt-16">
+      <div className="mx-auto max-w-4xl">
+        <div className="mb-16 text-center">
+          <span className="mb-6 inline-block rounded-full border border-[color:var(--border-soft)] bg-surface/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
+            About Us
+          </span>
+          <h1 className="mb-6 text-4xl font-semibold text-[color:var(--text-primary)] md:text-5xl">
+            Astral Nexus Guide Library
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-[color:var(--text-secondary)]">
+            A curated repository for ambitious learners seeking clarity, precision, and actionable knowledge.
           </p>
+        </div>
 
-          <h2 className="text-2xl font-semibold text-primary mb-4 mt-8">
-            What We Offer
-          </h2>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✦</span>
-              <span>
-                <strong>Comprehensive Guides:</strong> From tech to wellness, finance to
-                creativity, we cover every domain of knowledge.
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✦</span>
-              <span>
-                <strong>Smart Search:</strong> Find exactly what you need with our
-                intelligent search system.
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✦</span>
-              <span>
-                <strong>Organized Learning:</strong> Browse by category, tags, and
-                difficulty to find the perfect guide for your needs.
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary mr-3">✦</span>
-              <span>
-                <strong>Contextual Help:</strong> Our Astral Helper provides instant
-                assistance and related topics.
-              </span>
-            </li>
-          </ul>
-
-          <h2 className="text-2xl font-semibold text-primary mb-4 mt-8">The Astral Brand</h2>
-          <p className="text-gray-300 mb-6 leading-relaxed">
-            Astral represents innovation, clarity, and cosmic alignment. Our design
-            philosophy embraces neon teal aesthetics, glassmorphism, and modern typography
-            to create an experience that is both functional and visually stunning.
-          </p>
-
-          <div className="glass-card p-6 border border-primary/20 mt-8">
-            <p className="text-center text-lg italic text-gray-300">
-              &ldquo;Where Knowledge Aligns with the Stars&rdquo;
+        <div className="space-y-8">
+          <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-8 shadow-inner-sm md:p-12">
+            <h2 className="mb-4 text-xs uppercase tracking-[0.3em] text-primary">Our Mission</h2>
+            <p className="mb-6 leading-relaxed text-[color:var(--text-secondary)]">
+              Astral Nexus is the definitive knowledge hub for those who demand precision and depth. We aggregate field-tested frameworks, distilled research, and practitioner insights into a unified platform that rewards deliberate study and continuous refinement.
             </p>
+
+            <h2 className="mb-4 mt-10 text-xs uppercase tracking-[0.3em] text-primary">
+              What We Offer
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-5">
+                <div className="mb-2 text-2xl">📖</div>
+                <h3 className="mb-2 text-base font-semibold text-[color:var(--text-primary)]">
+                  Comprehensive Guides
+                </h3>
+                <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                  From strategic leadership to technical mastery, each guide blends theory with real-world application.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-5">
+                <div className="mb-2 text-2xl">🔍</div>
+                <h3 className="mb-2 text-base font-semibold text-[color:var(--text-primary)]">
+                  Smart Search
+                </h3>
+                <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                  Semantic search that surfaces relevant frameworks, case studies, and tactical references instantly.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-5">
+                <div className="mb-2 text-2xl">🗂️</div>
+                <h3 className="mb-2 text-base font-semibold text-[color:var(--text-primary)]">
+                  Organized Learning
+                </h3>
+                <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                  Browse by discipline, difficulty, and thematic tags to build structured learning pathways.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-5">
+                <div className="mb-2 text-2xl">🤖</div>
+                <h3 className="mb-2 text-base font-semibold text-[color:var(--text-primary)]">
+                  Contextual Assistance
+                </h3>
+                <p className="text-sm leading-relaxed text-[color:var(--text-secondary)]">
+                  AI-powered helper surfaces related concepts, answers questions, and connects themes across domains.
+                </p>
+              </div>
+            </div>
+
+            <h2 className="mb-4 mt-10 text-xs uppercase tracking-[0.3em] text-primary">Philosophy</h2>
+            <p className="leading-relaxed text-[color:var(--text-secondary)]">
+              Astral Nexus is built for practitioners who treat knowledge work as a discipline. Our design favors clarity over decoration, precision over volume, and deliberate practice over passive consumption. Every guide is structured for quick comprehension and long-term retention.
+            </p>
+
+            <div className="mt-10 rounded-3xl border border-primary/20 bg-primary/10 p-8 text-center shadow-inner-sm">
+              <p className="text-lg font-medium italic text-[color:var(--text-primary)]">
+                &ldquo;Knowledge crafted for ambitious learners&rdquo;
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="mt-12 text-center">
           <Link
             href="/guides"
-            className="btn-primary inline-block"
+            className="btn-primary"
           >
-            Explore All Guides
+            Explore the Library
           </Link>
         </div>
       </div>

@@ -10,34 +10,59 @@ export default function CategoryFilter({
   selectedCategory,
 }: CategoryFilterProps) {
   return (
-    <div className="glass-card p-6 rounded-lg sticky top-20">
-      <h3 className="text-lg font-semibold text-primary mb-4">Categories</h3>
-      <div className="space-y-2">
-        <Link
-          href="/guides"
-          className={`block px-4 py-2 rounded-lg transition-colors ${
-            !selectedCategory
-              ? 'bg-primary/20 text-primary border border-primary/30'
-              : 'glass-card-hover text-gray-300'
-          }`}
-        >
-          All Guides
-        </Link>
-        {categories.map((category) => (
+    <aside className="sticky top-28 space-y-6">
+      <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm">
+        <h3 className="text-xs uppercase tracking-[0.3em] text-primary">Filter by discipline</h3>
+        <p className="mt-2 text-sm text-[color:var(--text-secondary)]">
+          Focus your reading list by selecting a primary area of interest.
+        </p>
+        <div className="mt-6 space-y-2">
           <Link
-            key={category}
-            href={`/guides?category=${category.toLowerCase()}`}
-            className={`block px-4 py-2 rounded-lg transition-colors ${
-              selectedCategory?.toLowerCase() === category.toLowerCase()
-                ? 'bg-primary/20 text-primary border border-primary/30'
-                : 'glass-card-hover text-gray-300'
+            href="/guides"
+            className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-all ${
+              !selectedCategory
+                ? 'border-primary/50 bg-primary/10 text-primary'
+                : 'border-transparent bg-surface/60 text-[color:var(--text-secondary)] hover:border-primary/40 hover:bg-surface-muted/60'
             }`}
           >
-            {category}
+            <span>All guides</span>
+            <span className="text-xs uppercase tracking-[0.25em]">View</span>
           </Link>
-        ))}
+          {categories.map((category) => {
+            const isActive = selectedCategory?.toLowerCase() === category.toLowerCase()
+            return (
+              <Link
+                key={category}
+                href={`/guides?category=${category.toLowerCase()}`}
+                className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-medium transition-all ${
+                  isActive
+                    ? 'border-primary/50 bg-primary/10 text-primary'
+                    : 'border-transparent bg-surface/60 text-[color:var(--text-secondary)] hover:border-primary/40 hover:bg-surface-muted/60'
+                }`}
+              >
+                <span>{category}</span>
+                <span className="text-xs uppercase tracking-[0.25em] text-[color:var(--text-muted)]">Select</span>
+              </Link>
+            )
+          })}
+        </div>
       </div>
-    </div>
+
+      <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm">
+        <h3 className="text-xs uppercase tracking-[0.3em] text-primary">Reading strategy</h3>
+        <ul className="mt-4 space-y-3 text-sm text-[color:var(--text-secondary)]">
+          <li className="rounded-2xl border border-transparent bg-surface/60 px-4 py-3">
+            Start with a broad overview guide to anchor your understanding.
+          </li>
+          <li className="rounded-2xl border border-transparent bg-surface/60 px-4 py-3">
+            Layer specialised guides for deep dives and practical frameworks.
+          </li>
+          <li className="rounded-2xl border border-transparent bg-surface/60 px-4 py-3">
+            Capture key takeaways and build flashcards directly from highlights.
+          </li>
+        </ul>
+      </div>
+    </aside>
   )
 }
 

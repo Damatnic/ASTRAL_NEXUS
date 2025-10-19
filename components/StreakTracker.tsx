@@ -22,39 +22,39 @@ export default function StreakTracker() {
   }
 
   return (
-    <div className="glass-card p-6 rounded-lg">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-bold text-primary">Study Streak</h3>
+    <div className="rounded-3xl border border-[color:var(--border-soft)] bg-background/80 p-6 shadow-inner-sm">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-xl font-semibold text-primary">Study Streak</h3>
         <div className="text-3xl">
           {streak.current >= 30 ? '👑' : streak.current >= 7 ? '🔥' : '📅'}
         </div>
       </div>
 
       {/* Current Streak */}
-      <div className="text-center mb-6">
+      <div className="mb-6 text-center">
         <motion.div
           key={streak.current}
           initial={{ scale: 1 }}
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 0.5 }}
-          className="text-6xl font-bold neon-text mb-2"
+          className="mb-2 text-6xl font-bold text-primary"
         >
           {streak.current}
         </motion.div>
-        <div className="text-gray-400">Day{streak.current !== 1 ? 's' : ''} in a Row</div>
+        <div className="text-[color:var(--text-secondary)]">Day{streak.current !== 1 ? 's' : ''} in a Row</div>
       </div>
 
       {/* Longest Streak */}
       {streak.longest > streak.current && (
-        <div className="text-center mb-4 p-3 rounded-lg glass-card">
-          <div className="text-sm text-gray-400">Personal Best</div>
+        <div className="mb-4 rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-3 text-center">
+          <div className="text-sm text-[color:var(--text-muted)]">Personal Best</div>
           <div className="text-2xl font-bold text-accent">{streak.longest} days</div>
         </div>
       )}
 
       {/* Message */}
-      <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10 mb-4">
-        <p className="text-sm text-gray-300">{streak.message}</p>
+      <div className="mb-4 rounded-2xl border border-[color:var(--border-soft)] bg-surface/60 p-4 text-center">
+        <p className="text-sm text-[color:var(--text-secondary)]">{streak.message}</p>
       </div>
 
       {/* Today's Status */}
@@ -68,26 +68,26 @@ export default function StreakTracker() {
       )}
 
       {streak.isToday && (
-        <div className="text-center p-3 rounded-lg bg-green-500/20 border border-green-500/30">
-          <span className="text-green-400 font-semibold">✓ Studied Today!</span>
+        <div className="rounded-2xl border border-green-500/30 bg-green-500/20 p-3 text-center">
+          <span className="font-semibold text-green-400">✓ Studied Today!</span>
         </div>
       )}
 
       {/* Milestone Indicators */}
       <div className="mt-6 space-y-2">
-        <div className="text-xs text-gray-500 mb-2">Milestone Progress:</div>
+        <div className="mb-2 text-xs text-[color:var(--text-muted)]">Milestone Progress:</div>
         {[7, 30, 100].map(milestone => (
           <div key={milestone} className="flex items-center justify-between text-sm">
-            <span className={streak.current >= milestone ? 'text-green-400' : 'text-gray-500'}>
+            <span className={streak.current >= milestone ? 'text-green-400' : 'text-[color:var(--text-muted)]'}>
               {milestone} days {streak.current >= milestone && '✓'}
             </span>
-            <div className="flex-1 mx-3 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div className="mx-3 h-1 flex-1 overflow-hidden rounded-full bg-surface-muted/70">
               <div
                 className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500"
                 style={{ width: `${Math.min((streak.current / milestone) * 100, 100)}%` }}
               />
             </div>
-            <span className="text-gray-500">{Math.round((streak.current / milestone) * 100)}%</span>
+            <span className="text-[color:var(--text-muted)]">{Math.round((streak.current / milestone) * 100)}%</span>
           </div>
         ))}
       </div>
