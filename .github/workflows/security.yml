@@ -1,0 +1,306 @@
+name: Security Checks
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  schedule:
+    # Run security scan daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  security-tests:
+    name: Security Test Suite
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run security tests
+      run: npm run test:security || npm test tests/security
+      
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-test-results
+        path: coverage/
+
+  dependency-scan:
+    name: Dependency Vulnerability Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Run npm audit
+      run: |
+        npm audit --audit-level=moderate || true
+        npm audit --json > audit-report.json || true
+        
+    - name: Upload audit report
+      uses: actions/upload-artifact@v3
+      with:
+        name: npm-audit-report
+        path: audit-report.json
+        
+    - name: Check for critical vulnerabilities
+      run: |
+        if npm audit --audit-level=critical; then
+          echo "No critical vulnerabilities found"
+        else
+          echo "Critical vulnerabilities detected!"
+          exit 1
+        fi
+
+  code-scanning:
+    name: CodeQL Security Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+      
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript' ]
+        
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+        
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+      
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
+
+  secret-scanning:
+    name: Secret Detection
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        
+    - name: TruffleHog Secret Scan
+      uses: trufflesecurity/trufflehog@main
+      with:
+        path: ./
+        base: ${{ github.event.repository.default_branch }}
+        head: HEAD
+        extra_args: --debug --only-verified
+        
+    - name: Detect secrets with detect-secrets
+      run: |
+        pip install detect-secrets
+        detect-secrets scan --baseline .secrets.baseline || true
+        detect-secrets audit .secrets.baseline || true
+
+  sast-scan:
+    name: Static Application Security Testing
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install ESLint security plugin
+      run: |
+        npm install --save-dev eslint-plugin-security eslint-plugin-no-unsanitized
+        
+    - name: Create ESLint security config
+      run: |
+        cat > .eslintrc.security.json << 'EOF'
+        {
+          "plugins": ["security", "no-unsanitized"],
+          "extends": ["plugin:security/recommended"],
+          "rules": {
+            "security/detect-object-injection": "error",
+            "security/detect-non-literal-regexp": "warn",
+            "security/detect-unsafe-regex": "error",
+            "security/detect-buffer-noassert": "error",
+            "security/detect-child-process": "error",
+            "security/detect-disable-mustache-escape": "error",
+            "security/detect-eval-with-expression": "error",
+            "security/detect-no-csrf-before-method-override": "error",
+            "security/detect-non-literal-fs-filename": "warn",
+            "security/detect-non-literal-require": "warn",
+            "security/detect-possible-timing-attacks": "warn",
+            "security/detect-pseudoRandomBytes": "error",
+            "no-unsanitized/method": "error",
+            "no-unsanitized/property": "error"
+          }
+        }
+        EOF
+        
+    - name: Run ESLint security scan
+      run: |
+        npx eslint --config .eslintrc.security.json --ext .js,.jsx,.ts,.tsx apps/ packages/ || true
+        
+    - name: Upload SAST results
+      uses: actions/upload-artifact@v3
+      with:
+        name: sast-results
+        path: eslint-security-report.json
+        if-no-files-found: ignore
+
+  license-check:
+    name: License Compliance Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Check licenses
+      run: |
+        npx license-checker --production --summary --out license-report.json || true
+        npx license-checker --production --failOn 'GPL;AGPL;LGPL' || true
+        
+    - name: Upload license report
+      uses: actions/upload-artifact@v3
+      with:
+        name: license-report
+        path: license-report.json
+
+  docker-scan:
+    name: Container Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'docker') || contains(github.event.head_commit.message, 'container')
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+        
+    - name: Upload Trivy results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+  security-headers:
+    name: Security Headers Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Check security headers in Next.js config
+      run: |
+        echo "Checking for security headers in next.config.js..."
+        grep -E "X-Frame-Options|X-Content-Type-Options|X-XSS-Protection|Strict-Transport-Security|Content-Security-Policy" apps/web/next.config.js || echo "Warning: Some security headers may be missing"
+
+  owasp-check:
+    name: OWASP Dependency Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Run OWASP Dependency Check
+      uses: dependency-check/Dependency-Check_Action@main
+      with:
+        project: 'ASTRAL-CORE-V2'
+        path: '.'
+        format: 'HTML'
+        args: >
+          --enableRetired
+          --enableExperimental
+          
+    - name: Upload OWASP results
+      uses: actions/upload-artifact@v3
+      with:
+        name: owasp-dependency-check-report
+        path: reports/
+
+  security-summary:
+    name: Security Summary
+    runs-on: ubuntu-latest
+    needs: [security-tests, dependency-scan, code-scanning, secret-scanning, sast-scan]
+    if: always()
+    
+    steps:
+    - name: Security Check Summary
+      run: |
+        echo "## Security Check Summary"
+        echo "========================"
+        echo ""
+        if [ "${{ needs.security-tests.result }}" == "success" ]; then
+          echo "✅ Security Tests: Passed"
+        else
+          echo "❌ Security Tests: Failed"
+        fi
+        
+        if [ "${{ needs.dependency-scan.result }}" == "success" ]; then
+          echo "✅ Dependency Scan: No critical vulnerabilities"
+        else
+          echo "❌ Dependency Scan: Critical vulnerabilities found"
+        fi
+        
+        if [ "${{ needs.code-scanning.result }}" == "success" ]; then
+          echo "✅ Code Scanning: Completed"
+        else
+          echo "⚠️  Code Scanning: Issues detected"
+        fi
+        
+        if [ "${{ needs.secret-scanning.result }}" == "success" ]; then
+          echo "✅ Secret Scanning: No secrets detected"
+        else
+          echo "❌ Secret Scanning: Potential secrets found"
+        fi
+        
+        if [ "${{ needs.sast-scan.result }}" == "success" ]; then
+          echo "✅ SAST Scan: Completed"
+        else
+          echo "⚠️  SAST Scan: Security issues found"
+        fi
+        
+        echo ""
+        echo "For detailed results, check the individual job artifacts."

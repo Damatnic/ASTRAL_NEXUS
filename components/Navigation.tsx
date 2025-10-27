@@ -7,6 +7,7 @@ import XPDisplay from './XPDisplay'
 
 const navItems = [
   { name: 'Guides', href: '/guides' },
+  { name: 'Quick Guides', href: '/quick-guides' },
   { name: 'Categories', href: '/categories' },
   { name: 'Knowledge Base', href: '/knowledge-graph' },
 ]

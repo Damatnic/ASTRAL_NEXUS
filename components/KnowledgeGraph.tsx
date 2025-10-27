@@ -9,13 +9,21 @@ interface KnowledgeGraphProps {
   onNodeClick?: (nodeId: string) => void
 }
 
+interface SimNode extends WikiNode {
+  x: number
+  y: number
+  vx: number
+  vy: number
+}
+
 export default function KnowledgeGraph({ currentGuide, onNodeClick }: KnowledgeGraphProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [nodes, setNodes] = useState<WikiNode[]>([])
   const [edges, setEdges] = useState<WikiEdge[]>([])
+  const [simNodes, setSimNodes] = useState<SimNode[]>([])
   const [hoveredNode, setHoveredNode] = useState<string | null>(null)
   const [selectedNode, setSelectedNode] = useState<string | null>(currentGuide || null)
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     loadGraph()
@@ -40,6 +48,7 @@ export default function KnowledgeGraph({ currentGuide, onNodeClick }: KnowledgeG
 
     // Physics simulation
     const simulation = createSimulation(nodes, edges)
+    setSimNodes(simulation.nodes)
 
     // Animation loop
     const animate = () => {
@@ -124,7 +133,7 @@ export default function KnowledgeGraph({ currentGuide, onNodeClick }: KnowledgeG
     const y = e.clientY - rect.top
 
     // Find clicked node
-    const clickedNode = nodes.find(node => {
+    const clickedNode = simNodes.find(node => {
       const distance = Math.sqrt((node.x - x) ** 2 + (node.y - y) ** 2)
       return distance < getNodeRadius(node)
     })
@@ -144,7 +153,7 @@ export default function KnowledgeGraph({ currentGuide, onNodeClick }: KnowledgeG
     const y = e.clientY - rect.top
 
     // Find hovered node
-    const hoveredNode = nodes.find(node => {
+    const hoveredNode = simNodes.find(node => {
       const distance = Math.sqrt((node.x - x) ** 2 + (node.y - y) ** 2)
       return distance < getNodeRadius(node)
     })
@@ -222,9 +231,9 @@ export default function KnowledgeGraph({ currentGuide, onNodeClick }: KnowledgeG
           <div className="text-xs text-gray-400">
             Type: {nodes.find(n => n.id === hoveredNode)?.type}
           </div>
-          {nodes.find(n => n.id === hoveredNode)?.tags.length > 0 && (
+          {(nodes.find(n => n.id === hoveredNode)?.tags?.length || 0) > 0 && (
             <div className="flex flex-wrap gap-1 mt-2">
-              {nodes.find(n => n.id === hoveredNode)?.tags.map(tag => (
+              {nodes.find(n => n.id === hoveredNode)?.tags?.map(tag => (
                 <span key={tag} className="text-xs px-2 py-0.5 bg-white/10 rounded">
                   #{tag}
                 </span>
@@ -235,13 +244,6 @@ export default function KnowledgeGraph({ currentGuide, onNodeClick }: KnowledgeG
       )}
     </div>
   )
-}
-
-interface SimNode extends WikiNode {
-  x: number
-  y: number
-  vx: number
-  vy: number
 }
 
 // Physics simulation

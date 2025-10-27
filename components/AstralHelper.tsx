@@ -19,6 +19,12 @@ export default function AstralHelper({ relatedGuides }: AstralHelperProps) {
     'Explain this concept',
   ]
 
+  const handleQuickHelp = (help: string) => {
+    // Implement quick help functionality here
+    // This could trigger an AI chat request or scroll to specific sections
+    console.log('Quick help requested:', help)
+  }
+
   return (
     <>
       {/* Floating Helper Button */}

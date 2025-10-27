@@ -1,8 +1,8 @@
 import { db, Highlight } from './db'
 
-export async function addHighlight(guideSlug: string, text: string, color: Highlight['color'], headingId?: string) {
+export async function addHighlight(guideSlug: string, text: string, color: Highlight['color'], headingId?: string): Promise<number> {
   const h: Omit<Highlight, 'id'> = { guideSlug, text, color, headingId, createdAt: new Date() }
-  await db.highlights.add(h)
+  return await db.highlights.add(h) as number
 }
 
 export async function getHighlightsByGuide(guideSlug: string): Promise<Highlight[]> {

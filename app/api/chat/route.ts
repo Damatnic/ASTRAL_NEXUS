@@ -63,9 +63,8 @@ Format the response with clear headings for each day.`
     const chunks: string[] = []
     const loggingStream = new ReadableStream({
       async start(controller) {
-        const reader = response[Symbol.asyncIterator]()
         const encoder = new TextEncoder()
-        for await (const chunk of reader) {
+        for await (const chunk of response) {
           const text = chunk.choices[0]?.delta?.content || ''
           chunks.push(text)
           controller.enqueue(encoder.encode(text))

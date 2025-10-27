@@ -13,6 +13,13 @@ export interface Guide {
   content: string
   sections?: string[]
   relatedGuides?: string[]
+  // Quick guide fields
+  guideType?: 'comprehensive' | 'quick-guide' | 'reference'
+  timeRequired?: string
+  exercises?: boolean
+  templates?: string[]
+  realWorldExamples?: boolean
+  handsOn?: boolean
 }
 
 const guidesDirectory = path.join(process.cwd(), 'guides')
@@ -65,6 +72,13 @@ export function getGuideBySlug(slug: string): Guide | null {
       content,
       sections: data.sections || [],
       relatedGuides: data.relatedGuides || [],
+      // Quick guide fields
+      guideType: data.guideType || 'comprehensive',
+      timeRequired: data.timeRequired,
+      exercises: data.exercises || false,
+      templates: data.templates || [],
+      realWorldExamples: data.realWorldExamples || false,
+      handsOn: data.handsOn || false,
     }
   } catch (error) {
     console.error(`Error reading guide ${slug}:`, error)

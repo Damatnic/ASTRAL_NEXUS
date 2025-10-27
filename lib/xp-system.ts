@@ -132,7 +132,10 @@ interface XPPayload {
 // Get user's current level and XP
 export async function getUserLevel(): Promise<UserLevel> {
   const events = await db.activityLog
-    .filter(log => log.payload && (log.payload as XPPayload).xpEvent === true)
+    .filter(log => {
+      const payload = log.payload as XPPayload
+      return payload?.xpEvent === true
+    })
     .toArray()
   
   const totalXP = events.reduce((sum, event) => {
@@ -146,7 +149,10 @@ export async function getUserLevel(): Promise<UserLevel> {
 // Get recent XP events
 export async function getRecentXPEvents(limit: number = 10): Promise<XPEvent[]> {
   const events = await db.activityLog
-    .filter(log => log.payload && (log.payload as XPPayload).xpEvent === true)
+    .filter(log => {
+      const payload = log.payload as XPPayload
+      return payload?.xpEvent === true
+    })
     .reverse()
     .limit(limit)
     .toArray()
@@ -240,7 +246,10 @@ export async function getPersonalLeaderboard(): Promise<{
   const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000)
   
   const allEvents = await db.activityLog
-    .filter(log => log.payload && (log.payload as XPPayload).xpEvent === true)
+    .filter(log => {
+      const payload = log.payload as XPPayload
+      return payload?.xpEvent === true
+    })
     .toArray()
   
   const thisWeek = allEvents.filter(e => e.createdAt >= weekAgo)

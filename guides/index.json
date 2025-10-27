@@ -1,5 +1,53 @@
 [
   {
+    "slug": "how-to-negotiate-salary",
+    "title": "How to Negotiate Your Salary",
+    "description": "Practical strategies for salary negotiation with scripts, examples, and what to avoid",
+    "category": "Career",
+    "tags": [
+      "salary",
+      "negotiation",
+      "career",
+      "compensation",
+      "employment"
+    ],
+    "difficulty": "intermediate",
+    "wordCount": 1977,
+    "readingTime": "10 min read"
+  },
+  {
+    "slug": "how-to-run-effective-1on1s",
+    "title": "How to Run Effective 1-on-1 Meetings",
+    "description": "Master the art of 1-on-1 meetings to build rapport, uncover issues, and drive team performance",
+    "category": "Communication",
+    "tags": [
+      "1-on-1",
+      "management",
+      "leadership",
+      "communication",
+      "meetings"
+    ],
+    "difficulty": "beginner",
+    "wordCount": 2079,
+    "readingTime": "11 min read"
+  },
+  {
+    "slug": "how-to-write-professional-emails",
+    "title": "How to Write Professional Emails",
+    "description": "Quick guide to crafting effective professional emails with templates and real-world examples",
+    "category": "Communication",
+    "tags": [
+      "email",
+      "communication",
+      "professional",
+      "templates",
+      "business"
+    ],
+    "difficulty": "beginner",
+    "wordCount": 1491,
+    "readingTime": "8 min read"
+  },
+  {
     "slug": "negotiation-mastery",
     "title": "Negotiation Mastery: Win Every Deal",
     "description": "Master salary negotiations, contracts, and everyday situations. From anchoring techniques to emotional intelligence, become an expert negotiator.",

@@ -2,11 +2,29 @@ import { notFound } from 'next/navigation'
 import { getGuideBySlug, getAllGuides, getRelatedGuides } from '@/lib/guides'
 import { generateGuideMetadata } from '@/lib/metadata'
 import StudyModeSwitcher from '@/components/StudyModeSwitcher'
-import GuideTableOfContents from '@/components/GuideTableOfContents'
+import GuideTableOfContents, { TocHeading } from '@/components/GuideTableOfContents'
 import ProgressWidget from '@/components/ProgressWidget'
 import AIChat from '@/components/AIChat'
 import InteractiveTutorial from '@/components/InteractiveTutorial'
 import Link from 'next/link'
+
+function extractHeadings(content: string): TocHeading[] {
+  const headingRegex = /^(#{1,6})\s+(.+)$/gm
+  const headings: TocHeading[] = []
+  let match
+
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length
+    const text = match[2].trim()
+    const id = text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+    headings.push({ id, text, level })
+  }
+
+  return headings
+}
 
 export async function generateStaticParams() {
   const guides = getAllGuides()
@@ -154,7 +172,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <aside className="flex-shrink-0 space-y-6 lg:w-80">
           <ProgressWidget guideSlug={slug} guideTitle={guide.title} />
           
-          <GuideTableOfContents content={guide.content} />
+          <GuideTableOfContents headings={extractHeadings(guide.content)} />
 
           {/* Related Guides */}
           {relatedGuides.length > 0 && (
